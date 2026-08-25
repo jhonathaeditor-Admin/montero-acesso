@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spazio Montero — Acesso e Contatos</title>
+<meta name="description" content="Cadastro de novo morador, app Porter e contatos do Spazio Montero.">
+<meta name="theme-color" content="#0C1A33">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Archivo+Black&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0C1A33;
+    --ink:#0C1A33;
+    --paper:#EEF2F8;
+    --blue:#2F6BD8;
+    --blue-deep:#1B2A6B;
+    --steel:#7C90AE;
+    --amber:#F2B33D;
+    --wa:#1FA855;
+    --line:rgba(124,144,174,.28);
+    --display:'Archivo Black','Archivo',Impact,sans-serif;
+    --body:'Archivo',-apple-system,'Segoe UI',Roboto,sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:var(--navy);color:var(--paper);font-family:var(--body);
+    line-height:1.45;padding:0 20px 64px;
+    background-image:radial-gradient(140% 60% at 80% -5%,rgba(47,107,216,.34),transparent 60%);
+    background-repeat:no-repeat;
+  }
+  .wrap{max-width:520px;margin:0 auto}
+
+  header{padding:34px 0 26px;border-bottom:1px solid var(--line)}
+  .brand{font-family:var(--display);font-size:22px;letter-spacing:.01em}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.24em;
+           text-transform:uppercase;color:var(--steel);margin-top:8px}
+
+  h1{font-family:var(--display);font-size:34px;line-height:1.03;
+     letter-spacing:-.015em;margin:30px 0 12px}
+  h1 em{font-style:normal;color:var(--amber)}
+  .lede{color:#C3D0E4;font-size:16px}
+
+  h2.sec{font-family:var(--mono);font-size:11px;letter-spacing:.24em;
+         text-transform:uppercase;color:var(--steel);
+         margin:44px 0 16px;padding-top:22px;border-top:1px solid var(--line)}
+
+  .step{background:var(--paper);color:var(--ink);border-radius:16px;
+        padding:20px 20px 22px;margin-bottom:14px}
+  .step .n{font-family:var(--display);font-size:13px;color:#fff;
+           background:var(--blue-deep);width:30px;height:30px;border-radius:50%;
+           display:flex;align-items:center;justify-content:center}
+  .step h3{font-family:var(--display);font-size:20px;margin:14px 0 8px}
+  .step p{font-size:15px;color:#33456A}
+
+  a.btn{
+    display:flex;align-items:center;gap:12px;text-decoration:none;
+    border-radius:14px;padding:15px 16px;margin-top:14px;
+    font-weight:600;font-size:15px;color:#fff;background:var(--wa);
+  }
+  a.btn.call{background:var(--blue-deep)}
+  a.btn.mail{background:#3D4E75}
+  a.btn .ic{font-size:17px;line-height:1}
+  a.btn .num{margin-left:auto;font-family:var(--mono);font-weight:600;
+             font-size:14px;opacity:.9;white-space:nowrap}
+  a.btn:active{transform:translateY(1px)}
+  a.btn:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+
+  .linkcard{background:var(--blue);border-radius:16px;padding:18px;margin-bottom:8px;
+            display:block;text-decoration:none;color:#fff}
+  .linkcard span{font-family:var(--mono);font-size:11px;letter-spacing:.2em;
+                 text-transform:uppercase;opacity:.75}
+  .linkcard strong{display:block;font-size:17px;margin-top:6px}
+
+  ol{list-style:none;counter-reset:s;margin-top:6px}
+  ol li{counter-increment:s;display:grid;grid-template-columns:30px 1fr;
+        gap:14px;padding:13px 0;border-bottom:1px solid var(--line);font-size:15px;color:#D3DCEB}
+  ol li:last-child{border-bottom:0}
+  ol li::before{content:counter(s,decimal-leading-zero);
+                font-family:var(--mono);font-weight:600;font-size:14px;color:var(--amber)}
+  ol li k{font-family:var(--mono);font-weight:600;color:#fff}
+
+  .contact{border:1px solid var(--line);background:rgba(255,255,255,.05);
+           border-radius:16px;padding:18px;margin-bottom:12px}
+  .contact .who{font-family:var(--display);font-size:18px}
+  .contact .what{font-size:14px;color:var(--steel);margin-top:6px}
+  .contact .only{display:inline-block;font-family:var(--mono);font-size:11px;
+                 letter-spacing:.14em;text-transform:uppercase;color:var(--amber);
+                 border:1px solid rgba(242,179,61,.4);border-radius:99px;
+                 padding:4px 10px;margin-top:10px}
+
+  .hours{background:var(--paper);color:var(--ink);border-radius:16px;padding:20px}
+  .hours h3{font-family:var(--display);font-size:19px;margin-bottom:6px}
+  .hours .l{display:flex;justify-content:space-between;gap:14px;font-size:15px;
+            padding:10px 0;border-bottom:1px solid rgba(12,26,51,.12)}
+  .hours .l:last-of-type{border-bottom:0}
+  .hours .l span:last-child{font-family:var(--mono);font-weight:600}
+  .hours .note{font-size:14px;color:#33456A;margin-top:12px}
+
+  footer{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);
+         font-family:var(--mono);font-size:11px;letter-spacing:.16em;
+         text-transform:uppercase;color:var(--steel);text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="brand">SPAZIO MONTERO</div>
+    <div class="eyebrow">Acesso e contatos</div>
+  </header>
+
+  <h1>Novo morador?<br><em>Comece por aqui.</em></h1>
+  <p class="lede">São duas etapas, nesta ordem. Sem a primeira, a segunda não é liberada.</p>
+
+  <h2 class="sec">Etapa 1 — Resolv</h2>
+  <div class="step">
+    <div class="n">1</div>
+    <h3>Cadastro na Resolv</h3>
+    <p>Envie sua documentação e faça o cadastro de morador. Ao final, a Resolv emite o seu <strong>termo de acesso</strong> ao condomínio.</p>
+    <a class="btn" href="https://wa.me/554431233618?text=Ol%C3%A1!%20Sou%20morador%20do%20Spazio%20Montero%20e%20preciso%20fazer%20meu%20cadastro." target="_blank" rel="noopener">
+      <span class="ic">💬</span> Falar com a Resolv <span class="num">(44) 3123-3618</span>
+    </a>
+  </div>
+
+  <h2 class="sec">Etapa 2 — App Porter</h2>
+  <div class="step">
+    <div class="n">2</div>
+    <h3>Cadastro facial e veicular</h3>
+    <p>Com o termo de acesso emitido, baixe o app Porter e siga os passos abaixo.</p>
+  </div>
+
+  <a class="linkcard" href="https://links.porter.com.br/7Q3TxcxAB" target="_blank" rel="noopener">
+    <span>Baixar o aplicativo</span>
+    <strong>links.porter.com.br/7Q3TxcxAB →</strong>
+  </a>
+
+  <ol>
+    <li><p>Acesse o link acima e baixe o aplicativo.</p></li>
+    <li><p>Depois de instalar, volte ao mesmo link e acesse de novo. O nome do seu condomínio aparece na tela.</p></li>
+    <li><p>Selecione o condomínio e preencha todas as informações pedidas.</p></li>
+    <li><p>Confira os dados antes de finalizar e toque em <k>Enviar</k>.</p></li>
+    <li><p>Aguarde a aprovação. A confirmação chega no e-mail que você informou.</p></li>
+    <li><p>Aprovado: abra o app, entre com o seu e-mail e aceite todas as permissões.</p></li>
+    <li><p>Para a facial, vá em <k>Meu espaço</k> → <k>Mostrar mais</k> → <k>Minha facial</k>, tire a foto e envie.</p></li>
+  </ol>
+
+  <h2 class="sec">Contatos</h2>
+
+  <div class="contact">
+    <div class="who">Portaria Montero</div>
+    <div class="what">Dia a dia do condomínio, entregas e visitantes.</div>
+    <a class="btn" href="https://wa.me/5544998460165" target="_blank" rel="noopener">
+      <span class="ic">💬</span> WhatsApp <span class="num">(44) 99846-0165</span>
+    </a>
+  </div>
+
+  <div class="contact">
+    <div class="who">Resolv Condomínios</div>
+    <div class="what">Documentação, cadastro de morador e termo de acesso.</div>
+    <a class="btn" href="https://wa.me/554431233618" target="_blank" rel="noopener">
+      <span class="ic">💬</span> WhatsApp <span class="num">(44) 3123-3618</span>
+    </a>
+  </div>
+
+  <div class="contact">
+    <div class="who">Porter — suporte</div>
+    <div class="what">App, facial e veicular. Segunda a sexta, horário comercial.</div>
+    <span class="only">Somente mensagem</span>
+    <a class="btn" href="https://wa.me/5543991466210" target="_blank" rel="noopener">
+      <span class="ic">💬</span> WhatsApp <span class="num">(43) 99146-6210</span>
+    </a>
+  </div>
+
+  <div class="contact">
+    <div class="who">Porter 24h</div>
+    <div class="what">Portaria remota, fora do horário presencial.</div>
+    <span class="only">Somente ligação</span>
+    <a class="btn call" href="tel:+554333269594">
+      <span class="ic">📞</span> Ligar agora <span class="num">(43) 3326-9594</span>
+    </a>
+  </div>
+
+  <div class="contact">
+    <div class="who">Lista de convidados</div>
+    <div class="what">Envie por e-mail antes do evento.</div>
+    <a class="btn mail" href="mailto:londrina.operacional@porter.com.br?subject=Lista%20de%20convidados%20-%20Spazio%20Montero">
+      <span class="ic">✉️</span> Enviar e-mail
+    </a>
+  </div>
+
+  <div class="contact">
+    <div class="who">Síndico Jhonatha</div>
+    <div class="what">Assuntos do condomínio.</div>
+    <a class="btn" href="https://wa.me/5545999117139" target="_blank" rel="noopener">
+      <span class="ic">💬</span> WhatsApp <span class="num">(45) 99911-7139</span>
+    </a>
+  </div>
+
+  <h2 class="sec">Horários</h2>
+  <div class="hours">
+    <h3>Portaria presencial</h3>
+    <div class="l"><span>Segunda a sexta</span><span>08:00 – 18:00</span></div>
+    <div class="l"><span>Sábado</span><span>08:00 – 12:00</span></div>
+    <p class="note">Fora desses horários, o atendimento é remoto com a Porter, por ligação, 24 horas.</p>
+  </div>
+
+  <footer>Spazio Montero · Salve este link</footer>
+</div>
+</body>
+</html>
