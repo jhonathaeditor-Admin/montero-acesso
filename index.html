@@ -2,332 +2,1889 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Spazio Montero — Acesso e Contatos</title>
-<meta name="description" content="Cadastro de novo morador, app Porter, veículos e contatos do Spazio Montero.">
-<meta name="theme-color" content="#0C1A33">
-<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Central de Encomendas — Spazio Montero</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Archivo+Black&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.1.0/dist/tabler-icons.min.css">
 <style>
   :root{
-    --navy:#0C1A33; --ink:#0C1A33; --paper:#EEF2F8;
-    --blue:#2F6BD8; --blue-deep:#1B2A6B; --steel:#7C90AE; --amber:#F2B33D;
-    --wa:#1FA855; --line:rgba(124,144,174,.28);
-    --display:'Archivo Black','Archivo',Impact,sans-serif;
-    --body:'Archivo',-apple-system,'Segoe UI',Roboto,sans-serif;
-    --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+    --azul:#1f6feb; --azul-esc:#1657c9; --azul-2:#3b86ff;
+    --verde:#1a9c53; --verde-bg:#e7f6ee; --verde-tx:#0f6e3c;
+    --vermelho:#e24b4a; --vermelho-bg:#fdecec; --vermelho-tx:#b3312f;
+    --amarelo-bg:#fef3d9; --amarelo-tx:#8a5a00;
+    --azul-bg:#e8f1fe; --azul-tx:#154aa3;
+    --pagina:#f4f6fb; --surface:#ffffff; --borda:#e7eaf1; --borda-2:#dbe0ea;
+    --texto:#141a26; --suave:#69707e; --radius:16px;
+    --sombra:0 1px 2px rgba(20,26,38,.04), 0 6px 18px rgba(20,26,38,.05);
   }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
-  body{background:var(--navy);color:var(--paper);font-family:var(--body);
-       line-height:1.45;padding:0 20px 64px;
-       background-image:radial-gradient(140% 60% at 80% -5%,rgba(47,107,216,.34),transparent 60%);
-       background-repeat:no-repeat}
-  .wrap{max-width:520px;margin:0 auto}
-
-  header{padding:34px 0 26px;border-bottom:1px solid var(--line)}
-  .brand{font-family:var(--display);font-size:22px}
-  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.24em;
-           text-transform:uppercase;color:var(--steel);margin-top:8px}
-
-  h1{font-family:var(--display);font-size:34px;line-height:1.03;
-     letter-spacing:-.015em;margin:30px 0 12px}
-  h1 em{font-style:normal;color:var(--amber)}
-  .lede{color:#C3D0E4;font-size:16px}
-
-  nav.jump{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
-  nav.jump a{font-family:var(--mono);font-size:12px;letter-spacing:.08em;
-             text-transform:uppercase;text-decoration:none;color:#C3D0E4;
-             border:1px solid var(--line);border-radius:99px;padding:9px 14px}
-
-  h2.sec{font-family:var(--mono);font-size:11px;letter-spacing:.24em;
-         text-transform:uppercase;color:var(--steel);
-         margin:44px 0 16px;padding-top:22px;border-top:1px solid var(--line)}
-
-  .step{background:var(--paper);color:var(--ink);border-radius:16px;
-        padding:20px 20px 22px;margin-bottom:14px}
-  .step .n{font-family:var(--display);font-size:13px;color:#fff;
-           background:var(--blue-deep);width:30px;height:30px;border-radius:50%;
-           display:flex;align-items:center;justify-content:center}
-  .step h3{font-family:var(--display);font-size:20px;margin:14px 0 8px}
-  .step p{font-size:15px;color:#33456A}
-  .path{display:block;font-family:var(--mono);font-size:13.5px;font-weight:600;
-        color:var(--blue-deep);background:rgba(47,107,216,.10);
-        border-radius:10px;padding:12px 14px;margin-top:12px;line-height:1.6}
-
-  a.btn{display:flex;align-items:center;gap:12px;text-decoration:none;
-        border-radius:14px;padding:15px 16px;margin-top:14px;
-        font-weight:600;font-size:15px;color:#fff;background:var(--wa)}
-  a.btn.call{background:var(--blue-deep)}
-  a.btn.mail{background:#3D4E75}
-  a.btn .ic{font-size:17px;line-height:1}
-  a.btn .num{margin-left:auto;font-family:var(--mono);font-weight:600;
-             font-size:14px;opacity:.9;white-space:nowrap}
-  a.btn:active{transform:translateY(1px)}
-  a.btn:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
-
-  .linkcard{background:var(--blue);border-radius:16px;padding:18px;margin-bottom:8px;
-            display:block;text-decoration:none;color:#fff}
-  .linkcard span{font-family:var(--mono);font-size:11px;letter-spacing:.2em;
-                 text-transform:uppercase;opacity:.75}
-  .linkcard strong{display:block;font-size:17px;margin-top:6px}
-
-  ol{list-style:none;counter-reset:s;margin-top:6px}
-  ol li{counter-increment:s;display:grid;grid-template-columns:30px 1fr;
-        gap:14px;padding:13px 0;border-bottom:1px solid var(--line);
-        font-size:15px;color:#D3DCEB}
-  ol li:last-child{border-bottom:0}
-  ol li::before{content:counter(s,decimal-leading-zero);
-                font-family:var(--mono);font-weight:600;font-size:14px;color:var(--amber)}
-  ol li k{font-family:var(--mono);font-weight:600;color:#fff}
-
-  .contact{border:1px solid var(--line);background:rgba(255,255,255,.05);
-           border-radius:16px;padding:18px;margin-bottom:12px}
-  .contact .who{font-family:var(--display);font-size:18px}
-  .contact .bloco{font-family:var(--mono);font-size:11px;letter-spacing:.16em;
-                  text-transform:uppercase;color:var(--amber);display:block;margin-bottom:7px}
-  .contact .what{font-size:14px;color:var(--steel);margin-top:6px}
-  .contact .only{display:inline-block;font-family:var(--mono);font-size:11px;
-                 letter-spacing:.14em;text-transform:uppercase;color:var(--amber);
-                 border:1px solid rgba(242,179,61,.4);border-radius:99px;
-                 padding:4px 10px;margin-top:10px}
-
-  .alert{background:rgba(242,179,61,.12);border:1px solid rgba(242,179,61,.42);
-         border-radius:16px;padding:18px;margin-bottom:16px}
-  .alert h3{font-family:var(--display);font-size:16px;color:var(--amber);margin-bottom:8px}
-  .alert p{font-size:14.5px;color:#E4DCC6}
-  .alert p + p{margin-top:8px}
-
-  .hours{background:var(--paper);color:var(--ink);border-radius:16px;padding:20px}
-  .hours h3{font-family:var(--display);font-size:19px;margin-bottom:6px}
-  .hours .l{display:flex;justify-content:space-between;gap:14px;font-size:15px;
-            padding:10px 0;border-bottom:1px solid rgba(12,26,51,.12)}
-  .hours .l:last-of-type{border-bottom:0}
-  .hours .l span:last-child{font-family:var(--mono);font-weight:600}
-  .hours .note{font-size:14px;color:#33456A;margin-top:12px}
-
-
-  .regimento{display:block;text-decoration:none;background:var(--amber);color:#2A1D02;
-             border-radius:18px;padding:22px 20px;margin-top:26px;
-             box-shadow:0 0 0 4px rgba(242,179,61,.16)}
-  .regimento .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.22em;
-                     text-transform:uppercase;opacity:.72}
-  .regimento h3{font-family:var(--display);font-size:26px;line-height:1.05;margin:8px 0 10px}
-  .regimento p{font-size:14.5px;line-height:1.5;color:#4A3707}
-  .regimento .go{display:flex;align-items:center;justify-content:space-between;
-                 background:#2A1D02;color:var(--amber);border-radius:12px;
-                 padding:14px 16px;margin-top:16px;font-weight:600;font-size:15px}
-  .contact.chief{background:var(--paper);color:var(--ink);border-color:transparent}
-  .contact.chief .who{font-size:22px}
-  .contact.chief .what{color:#33456A}
-  .contact.chief .role{display:inline-block;font-family:var(--mono);font-size:11px;
-                       letter-spacing:.18em;text-transform:uppercase;color:#fff;
-                       background:var(--blue-deep);border-radius:99px;padding:5px 12px;margin-bottom:12px}
-  .contact.sub{display:grid;grid-template-columns:58px 1fr;gap:16px;align-items:start}
-  .contact.sub .blk{background:var(--blue-deep);border-radius:12px;
-                    display:flex;flex-direction:column;align-items:center;justify-content:center;
-                    padding:10px 0}
-  .contact.sub .blk small{font-family:var(--mono);font-size:9px;letter-spacing:.14em;
-                          text-transform:uppercase;color:var(--steel)}
-  .contact.sub .blk b{font-family:var(--display);font-size:24px;color:#fff;line-height:1}
-  .contact.sub .btn{grid-column:1/-1;margin-top:4px}
-
-  footer{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);
-         font-family:var(--mono);font-size:11px;letter-spacing:.16em;
-         text-transform:uppercase;color:var(--steel);text-align:center}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+       background:var(--pagina);color:var(--texto);-webkit-text-size-adjust:100%;
+       font-feature-settings:'cv02','cv03','cv04','cv11'}
+  .ti{font-size:1.1em;vertical-align:-.12em}
+  header{background:linear-gradient(135deg,var(--azul),var(--azul-2));color:#fff;padding:14px 16px;
+         position:sticky;top:0;z-index:10}
+  header h1{margin:0;font-size:17px;font-weight:700;letter-spacing:-.2px}
+  header small{opacity:.9;font-size:12px}
+  #status-conn{font-size:11px;margin-top:3px;opacity:.9}
+  .logo-ic{width:36px;height:36px;border-radius:11px;background:rgba(255,255,255,.18);
+           display:flex;align-items:center;justify-content:center;font-size:20px}
+  nav{display:flex;background:var(--surface);border-bottom:1px solid var(--borda);position:sticky;top:60px;
+      z-index:9;overflow-x:auto}
+  nav button{flex:1 0 auto;min-width:78px;padding:11px 6px 9px;border:0;background:none;font-size:12px;
+             font-weight:600;color:var(--suave);border-bottom:3px solid transparent;cursor:pointer;
+             display:flex;flex-direction:column;align-items:center;gap:3px;transition:color .18s}
+  nav button .ti{font-size:20px}
+  nav button.ativo{color:var(--azul);border-bottom-color:var(--azul)}
+  main{padding:16px 16px 70px;max-width:640px;margin:0 auto}
+  section{animation:fadein .28s ease}
+  @keyframes fadein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .card{background:var(--surface);border:1px solid var(--borda);border-radius:var(--radius);padding:16px;
+        margin-bottom:14px;box-shadow:var(--sombra)}
+  h2{font-size:18px;font-weight:700;letter-spacing:-.2px;margin:0 0 4px}
+  label{display:block;font-size:12px;font-weight:600;margin:12px 0 5px;color:var(--suave);
+        text-transform:none;letter-spacing:.1px}
+  input,select,textarea{width:100%;padding:13px;font-size:16px;border:1px solid var(--borda-2);
+                         border-radius:12px;background:var(--surface);color:var(--texto);transition:border-color .15s,box-shadow .15s}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--azul);box-shadow:0 0 0 3px var(--azul-bg)}
+  button.acao{width:100%;padding:14px;font-size:15px;font-weight:600;color:#fff;background:var(--azul);
+              border:0;border-radius:12px;margin-top:14px;cursor:pointer;transition:transform .08s,background .15s;
+              display:inline-flex;align-items:center;justify-content:center;gap:7px}
+  button.acao:active{transform:scale(.98);background:var(--azul-esc)}
+  button.sec{background:var(--surface);color:var(--azul);border:1px solid var(--borda-2);box-shadow:none}
+  button.verde{background:var(--verde)}
+  .lista-item{background:var(--surface);border:1px solid var(--borda);border-radius:var(--radius);padding:15px;
+              margin-bottom:11px;border-left:4px solid var(--borda-2);box-shadow:var(--sombra);transition:transform .1s}
+  .lista-item:active{transform:scale(.995)}
+  .card-vermelho{border-left-color:var(--vermelho)}
+  .card-verde{border-left-color:var(--verde)}
+  .card-cinza{border-left-color:#b9c0cc}
+  .selo-vermelho,.selo-verde,.selo-cinza{display:inline-flex;align-items:center;gap:4px;font-size:11px;
+       font-weight:600;padding:4px 10px;border-radius:999px;margin-bottom:8px;letter-spacing:.2px}
+  .selo-vermelho{background:var(--vermelho-bg);color:var(--vermelho-tx)}
+  .selo-verde{background:var(--verde-bg);color:var(--verde-tx)}
+  .selo-cinza{background:#eef0f4;color:#5f6672}
+  .li-topo{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+  .apto{font-size:30px;font-weight:800;line-height:1;letter-spacing:-.5px}
+  .nome{font-weight:600;margin-top:3px}
+  .meta{font-size:13px;color:var(--suave);margin-top:4px}
+  .cod{font-family:'Inter',monospace;font-weight:700;font-size:16px;background:var(--pagina);
+       padding:5px 9px;border-radius:9px;letter-spacing:1px}
+  .tag{font-size:12px;font-weight:600;padding:3px 9px;border-radius:999px}
+  .tag.recebida{background:var(--amarelo-bg);color:var(--amarelo-tx)}
+  .tag.notificada{background:var(--azul-bg);color:var(--azul-tx)}
+  .tag.retirada{background:var(--verde-bg);color:var(--verde-tx)}
+  .vazio{text-align:center;color:var(--suave);padding:34px 10px}
+  .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(8px);background:#141a26;color:#fff;
+         padding:13px 18px;border-radius:12px;font-size:14px;font-weight:500;z-index:80;opacity:0;transition:.22s;
+         max-width:90%;pointer-events:none;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  .filtro{display:flex;gap:8px;margin-bottom:12px}
+  .filtro button{flex:1;padding:9px;font-size:13px;border:1px solid var(--borda-2);background:var(--surface);
+                 border-radius:999px;font-weight:600;color:var(--suave);cursor:pointer;transition:.15s}
+  .filtro button.on{background:var(--azul);color:#fff;border-color:var(--azul)}
+  .filtro-ativo{display:flex;align-items:center;gap:8px;background:var(--azul-bg);color:var(--azul-tx);
+                border:1px solid #cfe0fb;border-radius:12px;padding:9px 12px;margin-bottom:10px;font-size:13px;font-weight:600}
+  .filtro-ativo .linkbtn{margin-left:auto}
+  .metric[role=button]{cursor:pointer;transition:transform .08s,box-shadow .15s}
+  .metric[role=button]:active{transform:scale(.98)}
+  .row2{display:flex;gap:10px}
+  .row2>div{flex:1}
+  .linkbtn{background:none;border:0;color:var(--azul);font-weight:600;font-size:13px;cursor:pointer;padding:0;
+           display:inline-flex;align-items:center;gap:4px}
+  .chip{display:inline-flex;align-items:center;gap:5px;margin:5px 5px 0 0;padding:9px 14px;border:1px solid var(--borda-2);
+        border-radius:999px;background:var(--surface);font-size:14px;font-weight:500;color:var(--texto);cursor:pointer;transition:.15s}
+  .chip-on{background:var(--azul);color:#fff;border-color:var(--azul)}
+  .picker-item{padding:12px;border-bottom:1px solid var(--borda);cursor:pointer;transition:background .12s}
+  .picker-item:active{background:var(--pagina)}
+  /* Dashboard */
+  .metrics{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:6px}
+  .metric{background:var(--surface);border:1px solid var(--borda);border-radius:14px;padding:14px 15px;box-shadow:var(--sombra)}
+  .metric .n{font-size:26px;font-weight:800;line-height:1;letter-spacing:-.5px}
+  .metric .l{font-size:12px;color:var(--suave);margin-top:5px;display:flex;align-items:center;gap:5px}
+  .metric.alerta{border-color:#f4cfcf}.metric.alerta .n{color:var(--vermelho)}
+  .metric.ok .n{color:var(--verde)}
+  .metric.info .n{color:var(--azul)}
+  /* Splash */
+  #splash{position:fixed;inset:0;z-index:300;background:linear-gradient(135deg,var(--azul),var(--azul-2));
+          display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;gap:14px;
+          transition:opacity .4s}
+  #splash .sp-ic{width:76px;height:76px;border-radius:22px;background:rgba(255,255,255,.16);display:flex;
+                 align-items:center;justify-content:center;font-size:40px;animation:pop .5s ease}
+  @keyframes pop{from{transform:scale(.7);opacity:0}to{transform:scale(1);opacity:1}}
+  /* Carregando (overlay com %) */
+  #carregando{position:fixed;inset:0;z-index:250;background:rgba(15,20,30,.55);backdrop-filter:blur(2px);
+              display:none;align-items:center;justify-content:center}
+  #carregando .box{background:var(--surface);border-radius:18px;padding:26px 30px;text-align:center;min-width:210px;box-shadow:0 12px 40px rgba(0,0,0,.25)}
+  .ring{width:64px;height:64px;border-radius:50%;margin:0 auto 12px;
+        background:conic-gradient(var(--azul) var(--pct,0%), var(--borda) 0);
+        display:flex;align-items:center;justify-content:center}
+  .ring::before{content:'';width:48px;height:48px;border-radius:50%;background:var(--surface)}
+  #carregando-pct{position:absolute;font-size:15px;font-weight:700;color:var(--azul)}
+  #carregando-msg{font-size:14px;color:var(--suave);font-weight:500}
 </style>
 </head>
 <body>
-<div class="wrap">
 
-  <header>
-    <div class="brand">SPAZIO MONTERO</div>
-    <div class="eyebrow">Acesso e contatos</div>
-  </header>
-
-  <h1>Novo morador?<br><em>Comece por aqui.</em></h1>
-  <p class="lede">São duas etapas, nesta ordem. Sem a primeira, a segunda não é liberada.</p>
-
-
-  <a class="regimento" id="regimento" href="https://drive.google.com/file/d/1fODEDPRQHEUnzouXWxpiUKYCFZDu7l-n/view?usp=share_link" target="_blank" rel="noopener">
-    <div class="kicker">Leitura obrigatória</div>
-    <h3>Leia o regimento interno</h3>
-    <p>Mudanças, obras, horário de silêncio, uso do salão e da piscina, visitantes, animais, vagas e multas: está tudo escrito ali. Quase toda advertência aplicada no condomínio é sobre uma regra que o morador não sabia que existia. Reserve 15 minutos e leia antes de precisar.</p>
-    <div class="go"><span>Abrir o regimento</span><span>→</span></div>
-  </a>
-
-  <nav class="jump">
-    <a href="#app">App Porter</a>
-    <a href="#veiculos">Veículos e tag</a>
-    <a href="#contatos">Contatos</a>
-    <a href="#sindicos">Síndicos</a>
-    <a href="#regimento">Regimento</a>
-  </nav>
-
-  <h2 class="sec">Etapa 1 — Resolv</h2>
-  <div class="step">
-    <div class="n">1</div>
-    <h3>Cadastro na Resolv</h3>
-    <p>Envie sua documentação e faça o cadastro de morador. Ao final, a Resolv emite o seu <strong>termo de acesso</strong> ao condomínio — a emissão pode levar <strong>até 48 horas</strong>.</p>
-    <p style="margin-top:10px">O <strong>agendamento de mudança</strong> também é feito com a Resolv, por este mesmo contato.</p>
-    <a class="btn" href="https://wa.me/554431233618?text=Ol%C3%A1!%20Sou%20morador%20do%20Spazio%20Montero%20e%20preciso%20fazer%20meu%20cadastro." target="_blank" rel="noopener">
-      <span class="ic">💬</span> Falar com a Resolv <span class="num">(44) 3123-3618</span>
-    </a>
-  </div>
-
-  <h2 class="sec" id="app">Etapa 2 — App Porter</h2>
-  <div class="step">
-    <div class="n">2</div>
-    <h3>Cadastro facial e veicular</h3>
-    <p>Com o termo de acesso emitido, baixe o app Porter e siga os passos abaixo.</p>
-  </div>
-
-  <a class="linkcard" href="https://links.porter.com.br/7Q3TxcxAB" target="_blank" rel="noopener">
-    <span>Baixar o aplicativo</span>
-    <strong>links.porter.com.br/7Q3TxcxAB →</strong>
-  </a>
-
-  <ol>
-    <li><p>Acesse o link acima e baixe o aplicativo.</p></li>
-    <li><p>Depois de instalar, volte ao mesmo link e acesse de novo. O nome do condomínio aparece na tela.</p></li>
-    <li><p>Selecione o condomínio e preencha todas as informações pedidas.</p></li>
-    <li><p>Confira os dados e toque em <k>Enviar</k>.</p></li>
-    <li><p>Aguarde a aprovação — a confirmação chega no e-mail informado.</p></li>
-    <li><p>Aprovado: abra o app, entre com seu e-mail e aceite todas as permissões.</p></li>
-    <li><p>Para a facial: <k>Meu espaço</k> → <k>Mostrar mais</k> → <k>Minha facial</k>, tire a foto e envie.</p></li>
-  </ol>
-
-  <h2 class="sec" id="veiculos">Veículos e tag</h2>
-
-  <div class="step">
-    <h3>Cadastrar seu veículo</h3>
-    <p>Dentro do app, siga este caminho e preencha os dados do veículo.</p>
-    <span class="path">Meu espaço → Mostrar mais… → Veículos da unidade → Cadastrar</span>
-  </div>
-
-  <div class="step">
-    <h3>Solicitar a tag veicular</h3>
-    <p>Selecione TAG e a quantidade que precisa, depois confirme em Solicitar nova chave.</p>
-    <span class="path">Meu espaço → Mostrar mais… → Solicitar dispositivos → TAG → Solicitar nova chave</span>
-    <p style="margin-top:12px"><strong>Valores:</strong> consulte pelos contatos da Porter, abaixo.</p>
-  </div>
-
-  <h2 class="sec" id="contatos">Contatos</h2>
-
-  <div class="contact">
-    <div class="who">Portaria Montero</div>
-    <div class="what">Dia a dia do condomínio, entregas e visitantes.</div>
-    <a class="btn" href="https://wa.me/5544998460165" target="_blank" rel="noopener">
-      <span class="ic">💬</span> WhatsApp <span class="num">(44) 99846-0165</span>
-    </a>
-  </div>
-
-  <div class="contact">
-    <div class="who">Resolv Condomínios</div>
-    <div class="what">Documentação, cadastro de morador, termo de acesso e agendamento de mudanças.</div>
-    <a class="btn" href="https://wa.me/554431233618" target="_blank" rel="noopener">
-      <span class="ic">💬</span> WhatsApp <span class="num">(44) 3123-3618</span>
-    </a>
-  </div>
-
-  <div class="contact">
-    <div class="who">Porter — suporte</div>
-    <div class="what">App, facial, veicular e valores de tag. Segunda a sexta, horário comercial.</div>
-    <span class="only">Somente mensagem</span>
-    <a class="btn" href="https://wa.me/5543991466210" target="_blank" rel="noopener">
-      <span class="ic">💬</span> WhatsApp <span class="num">(43) 99146-6210</span>
-    </a>
-  </div>
-
-  <div class="contact">
-    <div class="who">Porter 24h</div>
-    <div class="what">Portaria remota, fora do horário presencial.</div>
-    <span class="only">Somente ligação</span>
-    <a class="btn call" href="tel:+554333269594">
-      <span class="ic">📞</span> Ligar agora <span class="num">(43) 3326-9594</span>
-    </a>
-  </div>
-
-  <div class="contact">
-    <div class="who">Lista de convidados</div>
-    <div class="what">Envie por e-mail antes do evento.</div>
-    <a class="btn mail" href="mailto:londrina.operacional@porter.com.br?subject=Lista%20de%20convidados%20-%20Spazio%20Montero">
-      <span class="ic">✉️</span> Enviar e-mail
-    </a>
-  </div>
-
-  <h2 class="sec" id="sindicos">Síndico e subsíndicos</h2>
-
-  <div class="alert">
-    <h3>Quando chamar</h3>
-    <p>Atendimento em <strong>horário comercial</strong>.</p>
-    <p><strong>24 horas</strong> apenas para emergências: violação de segurança, falta de água, falta de energia ou falta de gás.</p>
-  </div>
-
-  <div class="contact chief">
-    <span class="role">Síndico geral</span>
-    <div class="who">Jhonatha</div>
-    <div class="what">Demandas administrativas do condomínio: contratos, obras, financeiro, assembleias e assuntos que envolvem os quatro blocos.</div>
-    <a class="btn" href="https://wa.me/5545999117139" target="_blank" rel="noopener">
-      <span class="ic">💬</span> WhatsApp <span class="num">(45) 99911-7139</span>
-    </a>
-  </div>
-
-  <div class="contact sub">
-    <div class="blk"><small>Bloco</small><b>1</b></div>
-    <div>
-      <div class="who">Jhonatan</div>
-      <div class="what">Subsíndico do bloco 1 · assuntos do dia a dia do seu prédio</div>
-    </div>
-    <a class="btn" href="https://wa.me/5544984220787" target="_blank" rel="noopener">
-      <span class="ic">💬</span> WhatsApp <span class="num">(44) 98422-0787</span>
-    </a>
-  </div>
-
-  <div class="contact sub">
-    <div class="blk"><small>Bloco</small><b>2</b></div>
-    <div>
-      <div class="who">Adriane</div>
-      <div class="what">Subsíndica do bloco 2 · assuntos do dia a dia do seu prédio</div>
-    </div>
-    <a class="btn" href="https://wa.me/5544998936825" target="_blank" rel="noopener">
-      <span class="ic">💬</span> WhatsApp <span class="num">(44) 99893-6825</span>
-    </a>
-  </div>
-
-  <div class="contact sub">
-    <div class="blk"><small>Bloco</small><b>3</b></div>
-    <div>
-      <div class="who">Luana</div>
-      <div class="what">Subsíndica do bloco 3 · assuntos do dia a dia do seu prédio</div>
-    </div>
-    <a class="btn" href="https://wa.me/5544998293399" target="_blank" rel="noopener">
-      <span class="ic">💬</span> WhatsApp <span class="num">(44) 99829-3399</span>
-    </a>
-  </div>
-
-  <div class="contact sub">
-    <div class="blk"><small>Bloco</small><b>4</b></div>
-    <div>
-      <div class="who">Marcos</div>
-      <div class="what">Subsíndico do bloco 4 · assuntos do dia a dia do seu prédio</div>
-    </div>
-    <a class="btn" href="https://wa.me/5544998354050" target="_blank" rel="noopener">
-      <span class="ic">💬</span> WhatsApp <span class="num">(44) 99835-4050</span>
-    </a>
-  </div>
-
-  <h2 class="sec">Horários</h2>
-  <div class="hours">
-    <h3>Portaria presencial</h3>
-    <div class="l"><span>Segunda a sexta</span><span>08:00 – 18:00</span></div>
-    <div class="l"><span>Sábado</span><span>08:00 – 12:00</span></div>
-    <p class="note">Fora desses horários, o atendimento é remoto com a Porter, por ligação, 24 horas.</p>
-  </div>
-
-  <footer>Spazio Montero · Salve este link</footer>
+<!-- SPLASH -->
+<div id="splash">
+  <div class="sp-ic"><i class="ti ti-package"></i></div>
+  <div style="font-size:19px;font-weight:700;letter-spacing:-.3px">Spazio Montero</div>
+  <div style="font-size:13px;opacity:.9">Central de Encomendas</div>
 </div>
+
+<!-- TELA DE LOGIN -->
+<div id="tela-login" style="display:none;position:fixed;inset:0;background:linear-gradient(135deg,var(--azul),var(--azul-2));z-index:200;align-items:center;justify-content:center;padding:20px">
+  <div class="card" style="width:100%;max-width:360px;margin:0;padding:26px 22px">
+    <div style="text-align:center;margin-bottom:6px"><span class="logo-ic" style="display:inline-flex;background:var(--azul-bg);color:var(--azul);font-size:26px;width:56px;height:56px;border-radius:16px"><i class="ti ti-package"></i></span></div>
+    <h2 style="text-align:center;margin:8px 0 2px">Central de Encomendas</h2>
+    <div class="meta" style="text-align:center;margin:0 0 16px">Spazio Montero — Portaria</div>
+    <label>E-mail</label>
+    <input id="login-email" type="email" inputmode="email" autocomplete="username" placeholder="nome@exemplo.com">
+    <label>Senha</label>
+    <input id="login-senha" type="password" autocomplete="current-password" placeholder="sua senha" onkeydown="if(event.key==='Enter')fazerLogin()">
+    <button class="acao" onclick="fazerLogin()"><i class="ti ti-login-2"></i> Entrar</button>
+    <div id="login-erro" class="meta" style="color:var(--vermelho);margin-top:10px;text-align:center"></div>
+  </div>
+</div>
+
+<!-- APP (só aparece depois do login) -->
+<div id="app" style="display:none">
+
+<header>
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:10px">
+    <div style="display:flex;align-items:center;gap:11px">
+      <div class="logo-ic"><i class="ti ti-package"></i></div>
+      <div style="line-height:1.25">
+        <h1>Spazio Montero</h1>
+        <small>Portaria · Central de Encomendas</small>
+        <div id="status-conn">conectando…</div>
+      </div>
+    </div>
+    <div style="text-align:right">
+      <div id="usuario-info" style="font-size:11px;opacity:.9"></div>
+      <button onclick="fazerLogout()" style="margin-top:5px;background:rgba(255,255,255,.2);color:#fff;border:0;border-radius:9px;padding:7px 11px;font-size:12px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:5px"><i class="ti ti-logout"></i> Sair</button>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <button data-aba="inicio" class="ativo" onclick="trocarAba('inicio')"><i class="ti ti-home"></i>Início</button>
+  <button data-aba="receber" onclick="trocarAba('receber')"><i class="ti ti-camera-plus"></i>Receber</button>
+  <button data-aba="encomendas" onclick="trocarAba('encomendas')"><i class="ti ti-package"></i>Encomendas</button>
+  <button data-aba="disparo" onclick="trocarAba('disparo')"><i class="ti ti-brand-whatsapp"></i>Disparo</button>
+  <button data-aba="moradores" onclick="trocarAba('moradores')"><i class="ti ti-users"></i>Moradores</button>
+  <button data-aba="relatorios" onclick="trocarAba('relatorios')"><i class="ti ti-chart-bar"></i>Relatórios</button>
+</nav>
+
+<main>
+  <!-- ABA INÍCIO (dashboard) -->
+  <section id="aba-inicio">
+    <div id="inicio-saudacao" style="margin:2px 0 14px">
+      <h2>Resumo</h2>
+      <div class="meta" id="inicio-data"></div>
+    </div>
+    <div class="metrics" id="inicio-metrics">
+      <div class="metric"><div class="n">—</div><div class="l">carregando…</div></div>
+    </div>
+    <button class="acao sec" onclick="trocarAba('receber')" style="margin-top:14px"><i class="ti ti-camera-plus"></i> Registrar nova encomenda</button>
+    <button class="acao" onclick="trocarAba('encomendas')" style="margin-top:10px"><i class="ti ti-package"></i> Ver encomendas pendentes</button>
+  </section>
+
+  <!-- ABA RECEBER -->
+  <section id="aba-receber" style="display:none">
+    <div class="card" style="border:1.5px dashed var(--azul);background:var(--azul-bg)">
+      <strong style="display:flex;align-items:center;gap:7px"><i class="ti ti-camera-plus" style="color:var(--azul);font-size:20px"></i> Ler etiqueta por foto</strong>
+      <p class="meta" style="margin:6px 0 10px">Tire uma foto do rótulo. A IA lê e preenche os dados sozinha. Confira sempre antes de salvar.</p>
+      <input type="file" id="r-foto" accept="image/*" capture="environment" onchange="lerEtiqueta(event)">
+      <div id="ocr-status" style="margin-top:10px"></div>
+      <img id="ocr-preview" style="display:none;max-width:100%;border-radius:8px;margin-top:10px;border:1px solid var(--borda)">
+    </div>
+
+    <div class="card">
+      <label>Morador</label>
+      <input id="r-morador-busca" placeholder="🔎 Apartamento, bloco ou nome" autocomplete="off" oninput="filtrarMoradorPicker()" onfocus="filtrarMoradorPicker()">
+      <input type="hidden" id="r-morador">
+      <div id="r-morador-sel"></div>
+      <div id="r-morador-lista" style="max-height:220px;overflow:auto;border:1px solid var(--borda);border-radius:8px;margin-top:6px;display:none"></div>
+
+      <label style="margin-top:12px">Transportadora</label>
+      <div id="transp-chips"></div>
+      <input id="r-transportadora" placeholder="Digite a transportadora" style="display:none;margin-top:8px">
+
+      <label>Código de rastreio (opcional)</label>
+      <input id="r-rastreio" placeholder="Ex.: BR123456789BR">
+
+      <div class="row2">
+        <div>
+          <label>Peso (kg, opcional)</label>
+          <input id="r-peso" type="number" step="0.01" inputmode="decimal" placeholder="0,00">
+        </div>
+      </div>
+
+      <label>Observações (opcional)</label>
+      <input id="r-obs" placeholder="Ex.: caixa grande, frágil">
+
+      <button class="acao" onclick="salvarEncomenda()"><i class="ti ti-circle-plus"></i> Registrar encomenda</button>
+    </div>
+    <div id="r-recibo"></div>
+  </section>
+
+  <!-- ABA ENCOMENDAS -->
+  <section id="aba-encomendas" style="display:none">
+    <div class="card" style="border:1.5px dashed var(--verde);background:var(--verde-bg)">
+      <strong style="display:flex;align-items:center;gap:7px"><i class="ti ti-qrcode" style="color:var(--verde);font-size:20px"></i> Dar baixa por QR</strong>
+      <p class="meta" style="margin:6px 0 10px">Escaneie o QR do cupom assinado. A câmera lê na hora, dá baixa e guarda a foto como comprovante.</p>
+      <button class="acao verde" onclick="abrirScanner()"><i class="ti ti-scan"></i> Escanear QR (câmera)</button>
+      <div class="meta" style="text-align:center;margin:8px 0 4px">ou, se preferir, tire uma foto do cupom:</div>
+      <input type="file" id="b-foto" accept="image/*" capture="environment" onchange="lerBaixaFoto(event)">
+      <div id="baixa-status" style="margin-top:10px"></div>
+    </div>
+
+    <input id="enc-busca" placeholder="🔎 Buscar por nome, apartamento ou bloco" oninput="renderEncomendas()" style="margin-bottom:10px">
+    <div class="filtro">
+      <button data-f="pendentes" class="on" onclick="setFiltro('pendentes')">Pendentes</button>
+      <button data-f="retiradas" onclick="setFiltro('retiradas')">Retiradas</button>
+      <button data-f="todas" onclick="setFiltro('todas')">Todas</button>
+    </div>
+    <div class="filtro">
+      <button data-f="falta_avisar" onclick="setFiltro('falta_avisar')"><i class="ti ti-bell"></i> Falta avisar</button>
+      <button data-f="avisado" onclick="setFiltro('avisado')"><i class="ti ti-bell-ringing"></i> Avisado</button>
+    </div>
+    <div id="enc-filtro-ativo" style="display:none"></div>
+    <div id="enc-count" class="meta" style="margin-bottom:8px;font-weight:700"></div>
+    <div id="lista-encomendas"><div class="vazio">Carregando…</div></div>
+  </section>
+
+  <!-- ABA MORADORES -->
+  <section id="aba-moradores" style="display:none">
+    <div class="card gestao-only" id="card-cadastrar-morador">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <strong style="display:flex;align-items:center;gap:7px"><i class="ti ti-user-plus" style="color:var(--azul)"></i> Cadastrar morador</strong>
+        <button class="linkbtn" onclick="toggleFormMorador()">mostrar/ocultar</button>
+      </div>
+      <div id="form-morador">
+        <div class="row2">
+          <div><label>Apartamento</label><input id="m-apto" inputmode="numeric" placeholder="Ex.: 101"></div>
+          <div><label>Bloco</label><input id="m-bloco" placeholder="Ex.: A"></div>
+        </div>
+        <label>Nome</label>
+        <input id="m-nome" placeholder="Nome completo">
+        <label>Telefone (WhatsApp)</label>
+        <input id="m-telefone" inputmode="tel" placeholder="Ex.: 11 91234-5678">
+        <button class="acao" onclick="salvarMorador()"><i class="ti ti-user-plus"></i> Salvar morador</button>
+      </div>
+    </div>
+
+    <div class="card gestao-only" id="card-importar">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <strong style="display:flex;align-items:center;gap:7px"><i class="ti ti-file-spreadsheet" style="color:var(--azul)"></i> Importar planilha</strong>
+        <button class="linkbtn" onclick="toggleImport()">mostrar/ocultar</button>
+      </div>
+      <div id="bloco-import">
+        <p class="meta" style="margin:8px 0">Escolha um arquivo Excel (.xlsx) ou CSV com os moradores. O app vai mostrar uma conferência antes de salvar.</p>
+        <input type="file" id="arq-planilha" accept=".xlsx,.xls,.csv" onchange="lerPlanilha(event)">
+        <div id="map-colunas" style="display:none">
+          <div class="row2">
+            <div><label>Coluna do Nome</label><select id="col-nome"></select></div>
+            <div><label>Coluna do Apartamento</label><select id="col-apto"></select></div>
+          </div>
+          <div class="row2">
+            <div><label>Coluna do Bloco (opcional)</label><select id="col-bloco"></select></div>
+            <div><label>Coluna do Telefone</label><select id="col-tel"></select></div>
+          </div>
+          <button class="acao sec" onclick="previewImport()" style="margin-top:12px">Conferir antes de salvar</button>
+        </div>
+        <div id="preview-import"></div>
+      </div>
+    </div>
+
+    <input id="m-busca" placeholder="🔎 Buscar por nome ou apartamento" oninput="renderMoradores()" style="margin-bottom:12px">
+    <div id="lista-moradores"><div class="vazio">Carregando…</div></div>
+  </section>
+
+  <!-- ABA RELATÓRIOS -->
+  <section id="aba-relatorios" style="display:none">
+    <div class="card">
+      <h2 style="display:flex;align-items:center;gap:8px"><i class="ti ti-chart-bar" style="color:var(--azul)"></i> Gerar relatório</h2>
+      <div class="row2">
+        <div><label>Bloco</label><select id="rel-bloco"><option value="">Todos</option></select></div>
+        <div><label>Situação</label>
+          <select id="rel-status">
+            <option value="todas">Todas</option>
+            <option value="pendentes">Pendentes</option>
+            <option value="retiradas">Retiradas</option>
+          </select>
+        </div>
+      </div>
+      <label>Filtrar por morador / apartamento (opcional)</label>
+      <input id="rel-morador" placeholder="Nome ou número do apartamento">
+      <label>Período</label>
+      <select id="rel-periodo">
+        <option value="0">Tudo</option>
+        <option value="7">Últimos 7 dias</option>
+        <option value="30">Últimos 30 dias</option>
+        <option value="90">Últimos 90 dias</option>
+      </select>
+      <button class="acao" onclick="gerarRelatorio()"><i class="ti ti-file-analytics"></i> Gerar relatório</button>
+    </div>
+    <div id="rel-resultado"></div>
+  </section>
+
+  <!-- ABA DISPARO (WhatsApp em lote via Evolution API) -->
+  <section id="aba-disparo" style="display:none">
+    <div class="card" style="border:1.5px dashed var(--verde);background:var(--verde-bg)">
+      <strong style="display:flex;align-items:center;gap:7px"><i class="ti ti-brand-whatsapp" style="color:var(--verde);font-size:20px"></i> Disparo no WhatsApp</strong>
+      <p class="meta" style="margin:6px 0 0">Avisa de uma vez todos os moradores com encomenda que ainda não foram notificados. O envio usa intervalos aleatórios e "digitando…" para evitar bloqueio. <b>Deixe esta tela aberta</b> durante o disparo.</p>
+    </div>
+
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <strong style="display:flex;align-items:center;gap:7px"><i class="ti ti-adjustments-alt" style="color:var(--azul)"></i> Ajustes do envio</strong>
+        <button class="linkbtn" onclick="toggleDispConfig()">mostrar/ocultar</button>
+      </div>
+      <div id="disp-config" style="display:none">
+        <div class="row2">
+          <div><label>Intervalo mínimo (seg)</label><input id="disp-min" type="number" inputmode="numeric" value="8"></div>
+          <div><label>Intervalo máximo (seg)</label><input id="disp-max" type="number" inputmode="numeric" value="20"></div>
+        </div>
+        <div class="row2">
+          <div><label>Pausa a cada (msgs)</label><input id="disp-lote" type="number" inputmode="numeric" value="10"></div>
+          <div><label>Pausa longa (seg)</label><input id="disp-pausa" type="number" inputmode="numeric" value="90"></div>
+        </div>
+        <label style="display:flex;align-items:center;gap:8px;font-weight:600;color:var(--texto);margin-top:10px">
+          <input type="checkbox" id="disp-horario" checked style="width:auto"> Avisar só em horário comercial (8h–20h)
+        </label>
+      </div>
+    </div>
+
+    <div class="card">
+      <div id="disp-resumo" class="meta" style="font-weight:700">—</div>
+      <div id="disp-lista" style="max-height:260px;overflow:auto;margin-top:8px"></div>
+      <button class="acao verde" id="disp-botao" onclick="dispararLote()"><i class="ti ti-send"></i> Disparar avisos pendentes</button>
+      <button class="acao sec" id="disp-parar" onclick="pararDisparo()" style="display:none"><i class="ti ti-player-stop"></i> Parar disparo</button>
+    </div>
+
+    <div class="card" id="disp-progresso-card" style="display:none">
+      <strong style="display:flex;align-items:center;gap:7px"><i class="ti ti-activity" style="color:var(--verde)"></i> Progresso</strong>
+      <div style="margin:10px 0">
+        <div style="height:10px;background:var(--borda);border-radius:999px;overflow:hidden">
+          <div id="disp-barra" style="height:100%;width:0;background:var(--verde);transition:width .3s"></div>
+        </div>
+        <div id="disp-status" class="meta" style="margin-top:6px;font-weight:600"></div>
+      </div>
+      <div id="disp-log" style="max-height:240px;overflow:auto;font-size:13px"></div>
+    </div>
+
+    <div class="card">
+      <strong style="display:flex;align-items:center;gap:7px"><i class="ti ti-message-2-check" style="color:var(--azul)"></i> Enviar teste</strong>
+      <p class="meta" style="margin:6px 0">Mande uma mensagem de teste pra um número seu antes de disparar pra todos.</p>
+      <label>Número (com DDD)</label>
+      <input id="disp-teste-num" inputmode="tel" placeholder="Ex.: 11 91234-5678">
+      <button class="acao sec" onclick="enviarTeste()"><i class="ti ti-send"></i> Enviar teste</button>
+      <div id="disp-teste-status" class="meta" style="margin-top:8px"></div>
+    </div>
+  </section>
+</main>
+
+<input type="file" id="baixa-manual-foto" accept="image/*" capture="environment" style="display:none" onchange="baixaManualComFoto(event)">
+
+<!-- Scanner de QR ao vivo -->
+<div id="scanner" style="display:none;position:fixed;inset:0;background:#000;z-index:100">
+  <video id="scanner-video" playsinline muted style="width:100%;height:100%;object-fit:cover"></video>
+  <div style="position:absolute;top:0;left:0;right:0;padding:14px;color:#fff;text-align:center;background:rgba(0,0,0,.55);font-weight:700">
+    Aponte a câmera para o QR do cupom
+  </div>
+  <div style="position:absolute;top:45%;left:50%;transform:translate(-50%,-50%);width:200px;height:200px;border:3px solid #fff;border-radius:16px;box-shadow:0 0 0 9999px rgba(0,0,0,.35)"></div>
+  <button onclick="fecharScanner()" style="position:absolute;bottom:26px;left:50%;transform:translateX(-50%);padding:14px 28px;border:0;border-radius:30px;background:#fff;color:#1a2230;font-size:16px;font-weight:700">Cancelar</button>
+</div>
+<canvas id="scanner-canvas" style="display:none"></canvas>
+
+<!-- Overlay de carregamento com % -->
+<div id="carregando">
+  <div class="box">
+    <div class="ring"><span id="carregando-pct">0%</span></div>
+    <div id="carregando-msg">Processando…</div>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+</div><!-- fim #app -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
+<script>
+// ====== CONEXÃO COM O SEU BANCO (já configurado) ======
+const SUPABASE_URL = "https://chxrxujvahnjwpzzmxdg.supabase.co";
+const SUPABASE_KEY = "sb_publishable_lr-tLjb4YMVm7mpHBy9sMA_ExQz4L0M";
+const db = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+let MORADORES = [];
+let ENCOMENDAS = [];
+let filtroAtual = "pendentes";
+let PAPEL = 'portaria';   // 'portaria' ou 'gestao'
+let USUARIO = null;
+
+// ---------- LOGIN / PERFIL ----------
+async function fazerLogin(){
+  const email = document.getElementById('login-email').value.trim();
+  const senha = document.getElementById('login-senha').value;
+  const err = document.getElementById('login-erro');
+  err.textContent = '';
+  if(!email || !senha){ err.textContent = 'Preencha e-mail e senha.'; return; }
+  const {data, error} = await db.auth.signInWithPassword({ email, password: senha });
+  if(error){ err.textContent = 'E-mail ou senha inválidos.'; return; }
+  await entrarNoApp(data.user);
+}
+async function fazerLogout(){
+  await db.auth.signOut();
+  location.reload();
+}
+async function entrarNoApp(user){
+  USUARIO = user;
+  // busca o papel do usuário
+  try{
+    const {data} = await db.from('perfis').select('papel,nome').eq('id', user.id).single();
+    PAPEL = (data && data.papel) || 'portaria';
+  }catch(e){ PAPEL = 'portaria'; }
+  document.getElementById('tela-login').style.display = 'none';
+  document.getElementById('splash').style.display = 'none';
+  document.getElementById('app').style.display = '';
+  document.getElementById('usuario-info').innerHTML =
+    '<i class="ti '+(PAPEL==='gestao'?'ti-shield-check':'ti-user')+'"></i> '+(PAPEL==='gestao'?'Gestão':'Portaria');
+  configurarPorPerfil();
+  await iniciarDados();
+  trocarAba('inicio');
+}
+function configurarPorPerfil(){
+  const soGestao = PAPEL === 'gestao';
+  // esconde cadastrar morador e importar planilha da portaria
+  document.querySelectorAll('.gestao-only').forEach(el=>{ el.style.display = soGestao ? '' : 'none'; });
+}
+
+// ---------- utilidades ----------
+function toast(msg, cor){
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.style.background = cor || '#1a2230';
+  t.classList.add('show'); setTimeout(()=>t.classList.remove('show'), 2600);
+}
+function gerarCodigo(){
+  const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"; // sem O,0,I,1 pra não confundir
+  let c=""; for(let i=0;i<4;i++) c+=chars[Math.floor(Math.random()*chars.length)];
+  return c;
+}
+function fmtData(iso){
+  if(!iso) return "";
+  const d = new Date(iso);
+  return d.toLocaleDateString('pt-BR',{day:'2-digit',month:'short',year:'numeric'}).replace('.','')
+    +", "+d.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
+}
+function escapeH(s){return (s||"").replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+
+// ---------- carregamento (%), som e vibração ----------
+function mostrarCarregando(msg){
+  document.getElementById('carregando-msg').textContent = msg || 'Processando…';
+  setPct(0);
+  document.getElementById('carregando').style.display = 'flex';
+}
+function setPct(n){
+  n = Math.max(0, Math.min(100, Math.round(n)));
+  const el = document.getElementById('carregando-pct');
+  if(el){ el.textContent = n+'%'; el.parentElement.style.setProperty('--pct', n+'%'); }
+}
+function esconderCarregando(){ document.getElementById('carregando').style.display = 'none'; }
+// avanço desacelerado (nunca trava): sobe rápido no início e vai afrouxando perto do fim
+async function comCarregando(msg, fn){
+  mostrarCarregando(msg);
+  let p = 5; setPct(p);
+  const t = setInterval(()=>{ p = p + (96 - p)*0.06; setPct(p); }, 180);
+  try{ return await fn(); }
+  finally{ clearInterval(t); setPct(100); setTimeout(esconderCarregando, 300); }
+}
+// bip curto (Web Audio) + vibração no sucesso
+let _actx = null;
+function sucesso(){
+  try{ navigator.vibrate && navigator.vibrate(60); }catch(e){}
+  try{
+    _actx = _actx || new (window.AudioContext||window.webkitAudioContext)();
+    const o = _actx.createOscillator(), g = _actx.createGain();
+    o.type='sine'; o.frequency.value=880; o.connect(g); g.connect(_actx.destination);
+    g.gain.setValueAtTime(.0001,_actx.currentTime);
+    g.gain.exponentialRampToValueAtTime(.25,_actx.currentTime+.01);
+    g.gain.exponentialRampToValueAtTime(.0001,_actx.currentTime+.16);
+    o.start(); o.stop(_actx.currentTime+.17);
+  }catch(e){}
+}
+
+// ---------- navegação ----------
+function trocarAba(aba){
+  document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('ativo', b.dataset.aba===aba));
+  document.getElementById('aba-inicio').style.display    = aba==='inicio' ? '' : 'none';
+  document.getElementById('aba-receber').style.display   = aba==='receber' ? '' : 'none';
+  document.getElementById('aba-encomendas').style.display= aba==='encomendas' ? '' : 'none';
+  document.getElementById('aba-disparo').style.display   = aba==='disparo' ? '' : 'none';
+  document.getElementById('aba-moradores').style.display = aba==='moradores' ? '' : 'none';
+  document.getElementById('aba-relatorios').style.display= aba==='relatorios' ? '' : 'none';
+  window.scrollTo({top:0, behavior:'smooth'});
+  if(aba==='inicio') renderInicio();
+  if(aba==='encomendas') carregarEncomendas();
+  if(aba==='disparo') renderDisparo();
+  if(aba==='moradores') renderMoradores();
+  if(aba==='relatorios') prepararRelatorio();
+}
+
+// ---------- DASHBOARD (aba Início) ----------
+async function renderInicio(){
+  const dt = document.getElementById('inicio-data');
+  if(dt) dt.textContent = new Date().toLocaleDateString('pt-BR', {weekday:'long', day:'2-digit', month:'long', year:'numeric'});
+  if(!ENCOMENDAS.length) await carregarEncomendas();
+  const hoje = new Date(); hoje.setHours(0,0,0,0);
+  const inicioMes = new Date(hoje.getFullYear(), hoje.getMonth(), 1).getTime();
+  const ehHoje = (iso)=> iso && new Date(iso).getTime() >= hoje.getTime();
+  const pend = ENCOMENDAS.filter(e=>e.status!=='retirada');
+  const recebidasHoje = ENCOMENDAS.filter(e=>ehHoje(e.recebida_em)).length;
+  const retiradasHoje = ENCOMENDAS.filter(e=>e.status==='retirada' && ehHoje(e.retirada_em)).length;
+  const atrasadas = pend.filter(e=>diasEspera(e.recebida_em) >= 7).length;
+  const recebidasMes = ENCOMENDAS.filter(e=>e.recebida_em && new Date(e.recebida_em).getTime() >= inicioMes).length;
+  const avisadas = ENCOMENDAS.filter(e=>e.status==='notificada').length;
+  const faltaAvisar = ENCOMENDAS.filter(e=>e.status==='recebida').length;
+  const cards = [
+    {n:pend.length, l:'pendentes', ic:'ti-clock-hour-4', cls:'', f:'pendentes'},
+    {n:faltaAvisar, l:'falta avisar', ic:'ti-bell', cls:'alerta', f:'falta_avisar'},
+    {n:avisadas, l:'avisadas aguardando', ic:'ti-bell-ringing', cls:'info', f:'avisado'},
+    {n:atrasadas, l:'atrasadas (+7 dias)', ic:'ti-alert-triangle', cls:'alerta', f:'atrasadas'},
+    {n:recebidasHoje, l:'recebidas hoje', ic:'ti-inbox', cls:'info', f:'recebidas_hoje'},
+    {n:retiradasHoje, l:'retiradas hoje', ic:'ti-circle-check', cls:'ok', f:'retiradas_hoje'},
+    {n:recebidasMes, l:'recebidas no mês', ic:'ti-calendar-month', cls:'', f:'recebidas_mes'},
+  ];
+  document.getElementById('inicio-metrics').innerHTML = cards.map(c=>`
+    <div class="metric ${c.cls}" role="button" tabindex="0" onclick="abrirEncomendasFiltrado('${c.f}')">
+      <div class="n">${c.n}</div>
+      <div class="l"><i class="ti ${c.ic}"></i>${c.l}<i class="ti ti-chevron-right" style="margin-left:auto;opacity:.35"></i></div>
+    </div>`).join('');
+}
+
+// ---------- carregar dados ----------
+async function carregarMoradores(){
+  // Carrega TODOS (inclusive arquivados) para que encomendas antigas
+  // sempre consigam mostrar o apartamento/nome. A lista e o dropdown
+  // mostram só os ativos.
+  const {data, error} = await db.from('moradores').select('*').order('apartamento');
+  if(error){ toast('Erro ao carregar moradores', '#d23c3c'); console.error(error); return; }
+  MORADORES = data || [];
+  renderMoradores();
+}
+
+// ---------- SELETOR DE MORADOR (busca por apto/bloco/nome) ----------
+function filtrarMoradorPicker(){
+  const q = normalizar(document.getElementById('r-morador-busca').value);
+  const lista = document.getElementById('r-morador-lista');
+  let ativos = MORADORES.filter(m=>m.ativo);
+  if(q) ativos = ativos.filter(m=>
+    normalizar(m.nome).includes(q) ||
+    normalizar(m.apartamento).includes(q) ||
+    normalizar(m.bloco||'').includes(q));
+  ativos = ativos.sort((a,b)=>(''+a.apartamento).localeCompare(''+b.apartamento,undefined,{numeric:true})).slice(0,40);
+  if(ativos.length===0){
+    lista.innerHTML = '<div class="meta" style="padding:11px">Nenhum morador. Cadastre na aba Moradores.</div>';
+  } else {
+    lista.innerHTML = ativos.map(m=>`<div class="picker-item" onclick="selecionarMoradorPicker('${m.id}')">
+      <b>Apto ${escapeH(m.apartamento)}${m.bloco?' Bl '+escapeH(m.bloco):''}</b> — ${escapeH(m.nome)}
+    </div>`).join('');
+  }
+  lista.style.display = '';
+}
+function selecionarMoradorPicker(id){
+  const m = MORADORES.find(x=>x.id===id); if(!m) return;
+  document.getElementById('r-morador').value = id;
+  document.getElementById('r-morador-sel').innerHTML =
+    `<div class="card" style="background:#f4fbf6;border:1px solid var(--verde);padding:10px;margin:8px 0 0">
+      ✅ <b>Apto ${escapeH(m.apartamento)}${m.bloco?' Bl '+escapeH(m.bloco):''}</b> — ${escapeH(m.nome)}
+      <button class="linkbtn" style="margin-left:6px" onclick="limparMoradorPicker()">trocar</button>
+    </div>`;
+  document.getElementById('r-morador-lista').style.display = 'none';
+  document.getElementById('r-morador-busca').value = '';
+}
+function limparMoradorPicker(){
+  document.getElementById('r-morador').value = '';
+  document.getElementById('r-morador-sel').innerHTML = '';
+}
+
+// ---------- CHIPS DE TRANSPORTADORA ----------
+const TRANSPORTADORAS = ['Correios','Mercado Livre','Shopee','Amazon','Shein','AliExpress','Jadlog','Loggi','Total Express'];
+function montarChipsTransp(){
+  const box = document.getElementById('transp-chips'); if(!box) return;
+  box.innerHTML = TRANSPORTADORAS.map(t=>`<button type="button" class="chip" onclick="selecionarTransp('${t}', this)">${t}</button>`).join('')
+    + `<button type="button" class="chip" onclick="transpOutra(this)">Outra…</button>`;
+}
+function selecionarTransp(nome, btn){
+  document.getElementById('r-transportadora').value = nome;
+  document.getElementById('r-transportadora').style.display = 'none';
+  document.querySelectorAll('#transp-chips .chip').forEach(b=>b.classList.remove('chip-on'));
+  if(btn) btn.classList.add('chip-on');
+}
+function transpOutra(btn){
+  document.querySelectorAll('#transp-chips .chip').forEach(b=>b.classList.remove('chip-on'));
+  if(btn) btn.classList.add('chip-on');
+  const inp = document.getElementById('r-transportadora');
+  inp.style.display = ''; inp.value = ''; inp.focus();
+}
+// usado pelo OCR: marca o chip se bater, senão joga no campo "Outra"
+function definirTransportadora(nome){
+  const chips = document.querySelectorAll('#transp-chips .chip');
+  let achou = false;
+  chips.forEach(b=>{
+    if(normalizar(b.textContent)===normalizar(nome)){ b.classList.add('chip-on'); achou=true; }
+    else b.classList.remove('chip-on');
+  });
+  const inp = document.getElementById('r-transportadora');
+  inp.value = nome;
+  inp.style.display = achou ? 'none' : '';
+}
+
+async function carregarEncomendas(){
+  const {data, error} = await db.from('encomendas').select('*').order('recebida_em',{ascending:false});
+  if(error){ toast('Erro ao carregar encomendas', '#d23c3c'); console.error(error); return; }
+  ENCOMENDAS = data || [];
+  renderEncomendas();
+}
+
+// reduz a foto antes de ler (fotos de celular são enormes e deixam a leitura lenta)
+function reduzirImagem(file, maxLado, qualidade){
+  maxLado = maxLado || 1500;
+  qualidade = qualidade || 0.85;
+  return new Promise((resolve)=>{
+    const img = new Image();
+    img.onload = ()=>{
+      const escala = Math.min(1, maxLado/Math.max(img.width, img.height));
+      const cw = Math.round(img.width*escala), ch = Math.round(img.height*escala);
+      const c = document.createElement('canvas'); c.width=cw; c.height=ch;
+      c.getContext('2d').drawImage(img, 0, 0, cw, ch);
+      c.toBlob(b=>resolve(b||file), 'image/jpeg', qualidade);
+    };
+    img.onerror = ()=>resolve(file);
+    img.src = URL.createObjectURL(file);
+  });
+}
+// ---------- QR CODE ----------
+// desenha um QR no canvas (usado no cupom impresso)
+function desenharQR(ctx, texto, x, y, tamanho){
+  try{
+    const qr = qrcode(0, 'M');
+    qr.addData(texto); qr.make();
+    const n = qr.getModuleCount();
+    const cell = tamanho / n;
+    ctx.save(); ctx.fillStyle = '#000';
+    for(let r=0;r<n;r++) for(let col=0;col<n;col++){
+      if(qr.isDark(r,col)) ctx.fillRect(Math.floor(x+col*cell), Math.floor(y+r*cell), Math.ceil(cell), Math.ceil(cell));
+    }
+    ctx.restore();
+  }catch(err){ console.error('QR:', err); }
+}
+// tenta ler um QR de uma foto; devolve o texto ou null
+function lerQR(file){
+  return new Promise(async (resolve)=>{
+    try{
+      const menor = await reduzirImagem(file, 1400);
+      const img = new Image();
+      img.onload = ()=>{
+        const c = document.createElement('canvas'); c.width=img.width; c.height=img.height;
+        const ctx = c.getContext('2d'); ctx.drawImage(img,0,0);
+        const d = ctx.getImageData(0,0,c.width,c.height);
+        const code = (typeof jsQR!=='undefined') ? jsQR(d.data, d.width, d.height) : null;
+        resolve(code ? code.data : null);
+      };
+      img.onerror = ()=>resolve(null);
+      img.src = URL.createObjectURL(menor);
+    }catch(err){ console.error(err); resolve(null); }
+  });
+}
+
+// ---------- LEITURA DA ETIQUETA (foto + OCR grátis) ----------
+let FOTO_SELECIONADA = null; // arquivo da foto pra subir ao salvar
+
+// envia um arquivo pro Storage (reduzido, p/ durar mais) e devolve o CAMINHO
+async function uploadArquivo(file, prefixo){
+  const menor = await reduzirImagem(file, 1000);  // reduz antes de guardar
+  const nome = prefixo+'/'+Date.now()+'_'+Math.random().toString(36).slice(2,8)+'.jpg';
+  const {error} = await db.storage.from('comprovantes').upload(nome, menor, {upsert:false, contentType:'image/jpeg'});
+  if(error) throw error;
+  return nome; // bucket é privado: guardamos o caminho, não uma URL pública
+}
+// abre uma foto do bucket privado (gera link temporário assinado)
+async function verFoto(path){
+  if(!path) return;
+  if(/^https?:\/\//.test(path)){ window.open(path, '_blank'); return; } // compat: registros antigos
+  const {data, error} = await db.storage.from('comprovantes').createSignedUrl(path, 3600);
+  if(error || !data){ toast('Não consegui abrir a foto', '#d23c3c'); return; }
+  window.open(data.signedUrl, '_blank');
+}
+
+// converte um arquivo/blob em base64 puro (sem o prefixo data:)
+function blobParaBase64(blob){
+  return new Promise((resolve, reject)=>{
+    const r = new FileReader();
+    r.onload = ()=>{ const s = ''+r.result; const i = s.indexOf(','); resolve(i>=0 ? s.slice(i+1) : s); };
+    r.onerror = reject;
+    r.readAsDataURL(blob);
+  });
+}
+// pede pro Gemini (via Edge Function) ler o rótulo; devolve {dados} ou {erro}
+async function lerEtiquetaIA(file){
+  try{
+    const menor = await reduzirImagem(file, 1400, 0.82); // nítida o bastante pra ler o nome pequeno, ainda leve
+    const b64 = await blobParaBase64(menor);
+    const {data, error} = await db.functions.invoke('ler-etiqueta', { body:{ imagemBase64:b64, mime:'image/jpeg' } });
+    if(error){
+      let msg = error.message || 'falha ao chamar a função';
+      try{ const b = await error.context.json(); if(b && b.erro) msg = b.erro; }catch(e){}
+      return { erro: msg };
+    }
+    if(data && data.ok && data.dados) return { dados: data.dados };
+    return { erro: (data && data.erro) || 'a IA não retornou dados' };
+  }catch(err){ return { erro: String((err && err.message) || err) }; }
+}
+
+// devolve os moradores mais prováveis (ranqueados) — NÃO escolhe sozinho.
+// O nome é o sinal forte (o apartamento sozinho se repete entre blocos).
+function candidatosMorador(texto){
+  const t = normalizar(texto);
+  const ativos = MORADORES.filter(m=>m.ativo);
+  const comNome = [], soLocal = [];
+  for(const m of ativos){
+    const partes = normalizar(m.nome).split(/\s+/).filter(p=>p.length>=3);
+    let nomeHits = 0;
+    partes.forEach(p=>{ if(t.includes(p)) nomeHits++; });
+    const apto = normalizar(m.apartamento);
+    const aptoHit = apto && new RegExp('(^|\\D)'+apto+'(\\D|$)').test(t);
+    const blocoHit = m.bloco && (t.includes('bloco '+normalizar(m.bloco)) || t.includes('bl '+normalizar(m.bloco)));
+    if(nomeHits>=1){
+      // casou pelo NOME — o apartamento/bloco só reforçam a ordem
+      comNome.push({ m, nota: nomeHits*10 + (aptoHit?3:0) + (blocoHit?2:0) });
+    } else if(aptoHit && blocoHit){
+      soLocal.push({ m, nota: 5 });
+    }
+  }
+  // O NOME manda: se alguém casou pelo nome, só mostramos esses.
+  // Só caímos no apartamento+bloco quando NENHUM nome bateu.
+  const base = comNome.length ? comNome : soLocal;
+  base.sort((a,b)=>b.nota-a.nota);
+  return base.slice(0, 6);
+}
+// destaca o candidato tocado
+function marcarEscolhaOCR(btn){
+  document.querySelectorAll('#ocr-status .cand').forEach(b=>{ b.classList.remove('chip-on'); b.style.background='#fff'; b.style.color='var(--texto)'; });
+  if(btn){ btn.style.background='var(--verde)'; btn.style.color='#fff'; }
+}
+
+async function lerEtiqueta(ev){
+  const file = ev.target.files[0];
+  if(!file) return;
+  FOTO_SELECIONADA = file;
+  const prev = document.getElementById('ocr-preview');
+  prev.src = URL.createObjectURL(file); prev.style.display='';
+  const st = document.getElementById('ocr-status');
+  st.innerHTML = '';
+  mostrarCarregando('Lendo a etiqueta…');
+  let _prog = 5; setPct(_prog);
+  const _pt = setInterval(()=>{ _prog = _prog + (96 - _prog)*0.055; setPct(_prog); }, 180);
+  try{
+    let texto = '', viaIA = false, erroIA = '', dadosIA = null;
+    const ia = await lerEtiquetaIA(file);   // leitura por IA (Gemini)
+    if(ia.dados){
+      dadosIA = ia.dados;
+      viaIA = true;
+      if(dadosIA.transportadora) definirTransportadora(dadosIA.transportadora);
+      if(dadosIA.rastreio) document.getElementById('r-rastreio').value = dadosIA.rastreio;
+      texto = `${dadosIA.nome||''} apto ${dadosIA.apartamento||''} bloco ${dadosIA.bloco||''}`;
+      // já joga o que a IA leu na busca de morador (apto se tiver, senão o nome)
+      const buscaAuto = (dadosIA.apartamento||'').trim() || (dadosIA.nome||'').trim();
+      if(buscaAuto){ document.getElementById('r-morador-busca').value = buscaAuto; filtrarMoradorPicker(); }
+    } else {
+      erroIA = ia.erro || '';   // sem leitor lento: se a IA falhar, a porteira busca na hora
+    }
+    const cands = candidatosMorador(texto);
+    let blocoMorador;
+    if(cands.length){
+      blocoMorador = `<div style="margin-top:8px;font-weight:700">Toque no morador certo:</div>` +
+        cands.map(c=>`<button type="button" class="acao sec cand" style="margin-top:6px;text-align:left"
+            onclick="selecionarMoradorPicker('${c.m.id}');marcarEscolhaOCR(this)">
+            Apto ${escapeH(c.m.apartamento)}${c.m.bloco?' Bl '+escapeH(c.m.bloco):''} — ${escapeH(c.m.nome)}
+          </button>`).join('');
+    } else {
+      blocoMorador = `<div class="meta" style="margin-top:8px;color:var(--vermelho);font-weight:700">⚠️ Não achei candidatos. Busque o morador manualmente no campo acima (apartamento, bloco ou nome).</div>`;
+    }
+    const transpAtual = document.getElementById('r-transportadora').value;
+    const rastAtual = document.getElementById('r-rastreio').value;
+    st.innerHTML = `<div class="card" style="background:var(--pagina);padding:12px;margin:0">
+      <div class="meta" style="font-weight:600;color:${viaIA?'var(--verde-tx)':'var(--vermelho)'}">${viaIA?'<i class="ti ti-sparkles"></i> Lido por IA':'<i class="ti ti-alert-circle"></i> IA ocupada — busque o morador manualmente'}</div>
+      ${erroIA?`<div class="meta" style="color:var(--vermelho)">${escapeH(erroIA)}</div>`:''}
+      ${dadosIA?`<div class="meta" style="margin-top:4px">IA leu: <b>${escapeH(dadosIA.nome||'—')}</b>${dadosIA.apartamento?' · apto '+escapeH(dadosIA.apartamento):''}${dadosIA.bloco?' · bloco '+escapeH(dadosIA.bloco):''}</div>`:''}
+      <span class="meta">${transpAtual?'Transportadora: '+escapeH(transpAtual)+'<br>':''}${rastAtual?'Rastreio: '+escapeH(rastAtual):''}</span>
+      ${blocoMorador}
+      <div class="meta" style="margin-top:8px">⚠️ Confira sempre o apartamento e o bloco antes de registrar.</div>
+    </div>`;
+  }catch(err){
+    console.error(err);
+    st.innerHTML = '<span class="meta" style="color:var(--vermelho)">Não consegui ler a foto. Preencha manualmente (a foto será guardada mesmo assim).</span>';
+  }finally{
+    clearInterval(_pt); setPct(100); setTimeout(esconderCarregando, 250);
+  }
+}
+
+// ---------- RECEBER ----------
+async function salvarEncomenda(){
+  const morador_id = document.getElementById('r-morador').value;
+  const transportadora = document.getElementById('r-transportadora').value.trim();
+  const rastreio = document.getElementById('r-rastreio').value.trim();
+  const pesoRaw = document.getElementById('r-peso').value.replace(',','.');
+  const obs = document.getElementById('r-obs').value.trim();
+
+  if(!morador_id){ toast('Escolha o morador', '#d23c3c'); return; }
+
+  const codigo = gerarCodigo();
+  let data, error;
+  await comCarregando('Salvando encomenda…', async ()=>{
+    // sobe a foto (se houver)
+    let foto_url = null;
+    if(FOTO_SELECIONADA){
+      try{ foto_url = await uploadArquivo(FOTO_SELECIONADA, 'recebimento'); }
+      catch(err){ console.error(err); toast('Não consegui enviar a foto — encomenda salva sem ela', '#d23c3c'); }
+    }
+    const registro = {
+      morador_id,
+      transportadora: transportadora || null,
+      codigo_rastreio: rastreio || null,
+      codigo_retirada: codigo,
+      peso: pesoRaw ? parseFloat(pesoRaw) : null,
+      observacoes: obs || null,
+      foto_url: foto_url,
+      porteiro_recebeu: null,
+      status: 'recebida'
+    };
+    const res = await db.from('encomendas').insert(registro).select().single();
+    data = res.data; error = res.error;
+  });
+  if(error){ toast('Erro ao salvar: '+error.message, '#d23c3c'); console.error(error); return; }
+  sucesso();
+
+  const m = MORADORES.find(x=>x.id===morador_id) || {};
+  mostrarRecibo(m, data);
+  // limpar formulário
+  document.getElementById('r-transportadora').value='';
+  document.getElementById('r-transportadora').style.display='none';
+  document.querySelectorAll('#transp-chips .chip').forEach(b=>b.classList.remove('chip-on'));
+  document.getElementById('r-rastreio').value='';
+  document.getElementById('r-peso').value='';
+  document.getElementById('r-obs').value='';
+  limparMoradorPicker();
+  document.getElementById('r-morador-busca').value='';
+  document.getElementById('r-morador-lista').style.display='none';
+  document.getElementById('r-foto').value='';
+  document.getElementById('ocr-status').innerHTML='';
+  document.getElementById('ocr-preview').style.display='none';
+  FOTO_SELECIONADA = null;
+  toast('Encomenda registrada! Código '+codigo, '#1a9c53');
+}
+
+let ULTIMO_RECIBO = null;
+function mostrarRecibo(m, e){
+  ULTIMO_RECIBO = { m, e };
+  document.getElementById('r-recibo').innerHTML = `
+    <div class="card" style="border:1.5px solid var(--verde);background:var(--verde-bg)">
+      <div style="display:flex;align-items:center;gap:7px;color:var(--verde-tx);font-weight:600;font-size:14px;justify-content:center;margin-bottom:6px"><i class="ti ti-circle-check" style="font-size:18px"></i> Encomenda registrada</div>
+      <div style="text-align:center">
+        <div style="font-size:12px;color:var(--suave);letter-spacing:.3px">APARTAMENTO</div>
+        <div class="apto" style="font-size:46px">${escapeH(m.apartamento||'?')}${m.bloco?' <span style="font-size:20px;color:var(--suave)">Bl '+escapeH(m.bloco)+'</span>':''}</div>
+        <div class="nome">${escapeH(m.nome||'')}</div>
+      </div>
+      <div style="text-align:center;margin:14px 0">
+        <div style="font-size:12px;color:var(--suave);letter-spacing:.3px">CÓDIGO DE RETIRADA</div>
+        <div class="cod" style="font-size:30px;display:inline-block;margin-top:4px">${e.codigo_retirada}</div>
+      </div>
+      <div class="meta" style="text-align:center">
+        ${e.transportadora?escapeH(e.transportadora)+' · ':''}${e.codigo_rastreio?escapeH(e.codigo_rastreio)+' · ':''}${fmtData(e.recebida_em)}
+      </div>
+      <button class="acao" style="margin-top:14px" onclick="imprimirUltimoRecibo()"><i class="ti ti-printer"></i> Imprimir cupom</button>
+    </div>`;
+}
+
+// ---------- IMPRESSÃO (RawBT / ESC-POS 58mm) ----------
+function semAcento(s){
+  return (''+ (s||'')).normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^\x20-\x7E]/g,'');
+}
+// Desenha o cupom como IMAGEM (canvas) — assim o apartamento pode ser
+// gigante sem o limite de 3x da impressora. 384 px = 58 mm.
+function montarCupomImagem(e, m){
+  const W = 384;
+  const c = document.createElement('canvas');
+  c.width = W; c.height = 1000;
+  const ctx = c.getContext('2d');
+  ctx.fillStyle = '#fff'; ctx.fillRect(0,0,W,c.height);
+  ctx.fillStyle = '#000'; ctx.textBaseline = 'top';
+  const cx = W/2;
+  let y = 16;
+  function centro(txt, size, bold, gap){
+    ctx.textAlign='center'; ctx.font=(bold?'bold ':'')+size+'px sans-serif';
+    ctx.fillText(txt, cx, y); y += (gap!=null?gap:size+6);
+  }
+  function esq(txt, size, bold, gap){
+    ctx.textAlign='left'; ctx.font=(bold?'bold ':'')+size+'px sans-serif';
+    ctx.fillText(txt, 16, y); y += (gap!=null?gap:size+6);
+  }
+  function divisoria(){ y += 6; ctx.fillRect(16, y, W-32, 2); y += 16; }
+
+  const numeroApto = semAcento(m.apartamento||'?');
+  const blocoApto  = m.bloco ? semAcento(m.bloco) : '';
+
+  centro('SPAZIO MONTERO', 30, true, 36);
+  centro('Portaria - Encomenda', 22, false, 30);
+  divisoria();
+  centro('APARTAMENTO', 22, false, 30);        // recuo = altura do rótulo (sem sobrepor)
+  centro(numeroApto, 150, true, 158);          // número GIGANTE
+  if(blocoApto) centro('BLOCO '+blocoApto, 50, true, 58);
+  y += 4;
+  centro('Morador', 20, false, 26);
+  centro(semAcento(m.nome||''), 26, true, 34);
+  divisoria();
+  centro('CODIGO DE RETIRADA', 22, false, 30); // recuo maior p/ não colar no código
+  centro(semAcento(e.codigo_retirada||''), 60, true, 70);   // código menor que o apartamento
+  // QR Code do código (leitura rápida e confiável na baixa)
+  const qrTam = 150;
+  desenharQR(ctx, 'ENC:'+semAcento(e.codigo_retirada||''), (W-qrTam)/2, y, qrTam);
+  y += qrTam + 10;
+  divisoria();
+  if(e.transportadora)  esq('Transportadora: '+semAcento(e.transportadora), 20, false, 26);
+  if(e.codigo_rastreio) esq('Rastreio: '+semAcento(e.codigo_rastreio), 20, false, 26);
+  esq('Recebido: '+fmtData(e.recebida_em||new Date().toISOString()), 20, false, 26);
+  divisoria();
+  esq('Assinatura de quem retirou:', 20, false, 110);  // espaço em branco pra assinar
+  ctx.fillRect(16, y, W-32, 2); y += 12;               // linha da assinatura
+  esq('(nome / apartamento)', 16, false, 40);          // rótulo abaixo da linha
+
+  // recorta na altura usada
+  const alturaUsada = y + 8;
+  const c2 = document.createElement('canvas');
+  c2.width = W; c2.height = alturaUsada;
+  const x2 = c2.getContext('2d');
+  x2.fillStyle = '#fff'; x2.fillRect(0,0,W,alturaUsada);
+  x2.drawImage(c, 0, 0);
+  return c2; // canvas de 384 px de largura
+}
+
+// Converte o canvas em comando ESC/POS raster (GS v 0) com largura FIXA.
+// Assim o RawBT imprime 1:1 (384 pontos) e não estica/corta.
+function canvasParaEscpos(canvas){
+  const w = canvas.width, h = canvas.height;
+  const bytesLinha = Math.ceil(w/8);                 // 48 bytes = 384 pontos
+  const img = canvas.getContext('2d').getImageData(0,0,w,h).data;
+  const raster = new Uint8Array(bytesLinha*h);
+  for(let yy=0; yy<h; yy++){
+    for(let xx=0; xx<w; xx++){
+      const i = (yy*w+xx)*4;
+      const lum = 0.299*img[i] + 0.587*img[i+1] + 0.114*img[i+2];
+      if(img[i+3] > 128 && lum < 128){               // pixel escuro = ponto preto
+        raster[yy*bytesLinha + (xx>>3)] |= (0x80 >> (xx & 7));
+      }
+    }
+  }
+  const ESC='\x1B', GS='\x1D';
+  let s = ESC+'@';                                    // inicializa
+  s += GS+'v'+'0'+'\x00';                             // GS v 0, m=0
+  s += String.fromCharCode(bytesLinha & 0xFF) + String.fromCharCode((bytesLinha>>8) & 0xFF); // xL xH
+  s += String.fromCharCode(h & 0xFF) + String.fromCharCode((h>>8) & 0xFF);                    // yL yH
+  let dados = '';
+  for(let k=0; k<raster.length; k++) dados += String.fromCharCode(raster[k]);
+  s += dados;
+  s += '\n\n\n';                                      // avança o papel
+  return s;
+}
+
+function imprimirCupom(e, m){
+  try{
+    const canvas = montarCupomImagem(e, m);
+    const escpos = canvasParaEscpos(canvas);
+    const b64 = btoa(escpos);
+    const S = '#Intent;scheme=rawbt;package=ru.a402d.rawbtprinter;end;';
+    window.location.href = 'intent:base64,' + b64 + S;
+    if(e && e.id) marcarImpresso(e.id); // registra que já foi impresso
+  }catch(err){ console.error(err); toast('Não consegui abrir a impressão', '#d23c3c'); }
+}
+async function marcarImpresso(id){
+  try{
+    await db.from('encomendas').update({impresso:true, impresso_em:new Date().toISOString()}).eq('id', id);
+    const alvo = ENCOMENDAS.find(y=>y.id===id); if(alvo) alvo.impresso = true;
+    renderEncomendas();
+  }catch(err){ console.error(err); }
+}
+function imprimirUltimoRecibo(){
+  if(ULTIMO_RECIBO) imprimirCupom(ULTIMO_RECIBO.e, ULTIMO_RECIBO.m);
+}
+function imprimirEncomenda(id){
+  const e = ENCOMENDAS.find(y=>y.id===id);
+  if(!e){ toast('Encomenda não encontrada', '#d23c3c'); return; }
+  const m = MORADORES.find(x=>x.id===e.morador_id) || {};
+  imprimirCupom(e, m);
+}
+
+// quantos dias inteiros desde que a encomenda deu entrada
+function diasEspera(iso){
+  if(!iso) return 0;
+  const ms = Date.now() - new Date(iso).getTime();
+  return Math.max(0, Math.floor(ms/86400000));
+}
+
+// ---------- ENCOMENDAS ----------
+// rótulos amigáveis de cada filtro (usados no contador e no banner)
+const FILTROS_LABEL = {
+  pendentes:'Pendentes', retiradas:'Retiradas', todas:'Todas',
+  falta_avisar:'Falta avisar', avisado:'Avisado aguardando',
+  recebidas_hoje:'Recebidas hoje', atrasadas:'Atrasadas (+7 dias)',
+  retiradas_hoje:'Retiradas hoje', recebidas_mes:'Recebidas no mês'
+};
+function sincronizarBotoesFiltro(){
+  document.querySelectorAll('.filtro button').forEach(b=>b.classList.toggle('on', b.dataset.f===filtroAtual));
+}
+function setFiltro(f){
+  filtroAtual = f;
+  sincronizarBotoesFiltro();
+  renderEncomendas();
+}
+// abre a aba Encomendas já com um filtro aplicado (usado pelos cards do Início)
+function abrirEncomendasFiltrado(f){
+  filtroAtual = f;
+  const busca = document.getElementById('enc-busca'); if(busca) busca.value='';
+  trocarAba('encomendas');       // recarrega e chama renderEncomendas usando filtroAtual
+  sincronizarBotoesFiltro();
+}
+function renderEncomendas(){
+  const box = document.getElementById('lista-encomendas');
+  let itens = ENCOMENDAS;
+  const _hoje = new Date(); _hoje.setHours(0,0,0,0);
+  const _inicioMes = new Date(_hoje.getFullYear(), _hoje.getMonth(), 1).getTime();
+  const _ehHoje = (iso)=> iso && new Date(iso).getTime() >= _hoje.getTime();
+  switch(filtroAtual){
+    case 'pendentes':      itens = ENCOMENDAS.filter(e=>e.status!=='retirada'); break;
+    case 'retiradas':      itens = ENCOMENDAS.filter(e=>e.status==='retirada'); break;
+    case 'falta_avisar':   itens = ENCOMENDAS.filter(e=>e.status==='recebida'); break;
+    case 'avisado':        itens = ENCOMENDAS.filter(e=>e.status==='notificada'); break;
+    case 'recebidas_hoje': itens = ENCOMENDAS.filter(e=>_ehHoje(e.recebida_em)); break;
+    case 'atrasadas':      itens = ENCOMENDAS.filter(e=>e.status!=='retirada' && diasEspera(e.recebida_em)>=7); break;
+    case 'retiradas_hoje': itens = ENCOMENDAS.filter(e=>e.status==='retirada' && _ehHoje(e.retirada_em)); break;
+    case 'recebidas_mes':  itens = ENCOMENDAS.filter(e=>e.recebida_em && new Date(e.recebida_em).getTime()>=_inicioMes); break;
+    default:               itens = ENCOMENDAS; // 'todas'
+  }
+
+  // busca por nome, apartamento, bloco ou código
+  const q = normalizar(document.getElementById('enc-busca')?.value);
+  if(q){
+    itens = itens.filter(e=>{
+      const m = MORADORES.find(x=>x.id===e.morador_id) || {};
+      return normalizar(m.nome).includes(q)
+          || normalizar(m.apartamento).includes(q)
+          || normalizar(m.bloco||'').includes(q)
+          || (e.codigo_retirada||'').toLowerCase().includes(q);
+    });
+  }
+
+  // banner do filtro ativo (aparece quando o filtro não tem botão visível — ex.: vindo de um card do Início)
+  const _bar = document.getElementById('enc-filtro-ativo');
+  if(_bar){
+    const temBotao = ['pendentes','retiradas','todas','falta_avisar','avisado'].includes(filtroAtual);
+    if(!temBotao){
+      _bar.innerHTML = '<div class="filtro-ativo"><i class="ti ti-filter"></i> Filtrando: <b>'+(FILTROS_LABEL[filtroAtual]||filtroAtual)+'</b><button class="linkbtn" onclick="setFiltro(\'pendentes\')">✕ limpar</button></div>';
+      _bar.style.display = '';
+    } else { _bar.innerHTML=''; _bar.style.display='none'; }
+  }
+  const cnt = document.getElementById('enc-count');
+  if(cnt){
+    const lbl = (FILTROS_LABEL[filtroAtual]||'').toLowerCase();
+    cnt.textContent = itens.length + ' encomenda(s)' + (lbl?' · '+lbl:'') + (q?' · "'+document.getElementById('enc-busca').value.trim()+'"':'');
+  }
+
+  if(itens.length===0){ box.innerHTML = '<div class="vazio">Nenhuma encomenda aqui.</div>'; return; }
+
+  box.innerHTML = itens.map(e=>{
+    const m = MORADORES.find(x=>x.id===e.morador_id) || {};
+    const retirada = e.status==='retirada';
+    // cor do card: vermelho=falta avisar | verde=já avisado | cinza=retirada
+    let classeCor='card-vermelho', selo='<i class="ti ti-bell"></i>Falta avisar', seloClasse='selo-vermelho';
+    if(e.status==='notificada'){ classeCor='card-verde'; selo='<i class="ti ti-bell-ringing"></i>Avisado'; seloClasse='selo-verde'; }
+    if(retirada){ classeCor='card-cinza'; selo='<i class="ti ti-circle-check"></i>Retirada'; seloClasse='selo-cinza'; }
+    // dias parada na portaria (só p/ pendentes)
+    const dias = diasEspera(e.recebida_em);
+    const corDias = dias>=7 ? 'var(--vermelho)' : (dias>=3 ? 'var(--amarelo-tx)' : 'var(--suave)');
+    const textoDias = dias===0 ? 'Chegou hoje' : (dias+' dia'+(dias>1?'s':'')+' na portaria');
+    return `<div class="lista-item ${classeCor}">
+      <div class="li-topo">
+        <div>
+          <div class="${seloClasse}">${selo}</div>
+          <div class="apto">${escapeH(m.apartamento||'?')}${m.bloco?' <span style="font-size:15px;color:var(--suave)">Bl '+escapeH(m.bloco)+'</span>':''}</div>
+          <div class="nome">${escapeH(m.nome||'(morador removido)')}</div>
+          <div class="meta">${e.transportadora?'<i class="ti ti-truck-delivery"></i> '+escapeH(e.transportadora)+' · ':''}${fmtData(e.recebida_em)}</div>
+          <div class="meta" style="font-weight:600;color:${e.impresso?'var(--verde)':'var(--vermelho)'}"><i class="ti ${e.impresso?'ti-printer':'ti-printer-off'}"></i> ${e.impresso?'Cupom impresso':'Falta imprimir'}</div>
+          ${retirada?'':`<div class="meta" style="font-weight:600;color:${corDias}"><i class="ti ti-clock"></i> ${textoDias}</div>`}
+          ${retirada?`<div class="meta"><i class="ti ti-user-check"></i> Retirado por ${escapeH(e.retirada_por||'?')} em ${fmtData(e.retirada_em)}</div>`:''}
+        </div>
+        <div style="text-align:right">
+          <div class="cod">${e.codigo_retirada}</div>
+          ${e.foto_url?`<button class="linkbtn" style="display:block;margin-top:8px;margin-left:auto" onclick="verFoto('${escapeH(e.foto_url)}')"><i class="ti ti-photo"></i> Recebimento</button>`:''}
+          ${e.foto_retirada_url?`<button class="linkbtn" style="display:block;margin-top:6px;margin-left:auto;color:var(--verde)" onclick="verFoto('${escapeH(e.foto_retirada_url)}')"><i class="ti ti-photo-check"></i> Comprovante</button>`:''}
+        </div>
+      </div>
+      <button class="acao ${e.impresso?'sec':''}" style="margin-top:12px" onclick="imprimirEncomenda('${e.id}')"><i class="ti ${e.impresso?'ti-refresh':'ti-printer'}"></i> ${e.impresso?'Reimprimir cupom':'Imprimir cupom'}</button>
+      ${retirada?'':`
+        <button class="acao sec" style="margin-top:8px" onclick="avisarWhatsapp('${e.id}')"><i class="ti ti-brand-whatsapp"></i> ${e.status==='notificada'?'Avisar de novo':'Avisar no WhatsApp'}</button>
+        <button class="acao verde" style="margin-top:8px" onclick="darBaixa('${e.id}')"><i class="ti ti-camera-check"></i> Dar baixa (foto do cupom)</button>`}
+      ${retirada?`<div style="text-align:center;margin-top:10px"><button class="linkbtn" style="color:var(--amarelo-tx)" onclick="reverterBaixa('${e.id}')"><i class="ti ti-arrow-back-up"></i> Desfazer baixa (foi engano)</button></div>`:''}
+      ${PAPEL==='gestao'?`<div style="text-align:center;margin-top:10px">
+        <button class="linkbtn" style="color:var(--vermelho)" onclick="excluirEncomenda('${e.id}')"><i class="ti ti-trash"></i> Excluir esta encomenda</button>
+      </div>`:''}
+    </div>`;
+  }).join('');
+}
+
+async function excluirEncomenda(id){
+  if(!confirm('Excluir esta encomenda? Essa ação não pode ser desfeita.')) return;
+  const {error} = await db.from('encomendas').delete().eq('id', id);
+  if(error){ toast('Erro ao excluir: '+error.message, '#d23c3c'); console.error(error); return; }
+  toast('Encomenda excluída', '#1a9c53');
+  carregarEncomendas();
+}
+
+// Deixa o telefone no formato internacional (Brasil = 55) só com números
+function telefoneParaWa(tel){
+  if(!tel) return null;
+  let d = (''+tel).replace(/\D/g,'');
+  if(d.length < 10) return null;
+  if(!d.startsWith('55')) d = '55' + d;
+  return d;
+}
+
+// Abre o WhatsApp já com a mensagem pronta pro morador (grátis, via wa.me)
+function avisarWhatsapp(id){
+  const e = ENCOMENDAS.find(y=>y.id===id);
+  if(!e){ toast('Encomenda não encontrada', '#d23c3c'); return; }
+  const m = MORADORES.find(x=>x.id===e.morador_id) || {};
+  const fone = telefoneParaWa(m.telefone);
+  if(!fone){ toast('⚠️ Esse morador não tem telefone válido cadastrado', '#d23c3c'); return; }
+
+  const apto = (m.apartamento||'') + (m.bloco?' Bl '+m.bloco:'');
+  const msg =
+    `Olá ${m.nome||''}! 📦\n\n`+
+    `Chegou uma encomenda para o apartamento *${apto}* na portaria do Spazio Montero.\n\n`+
+    `Código de retirada: *${e.codigo_retirada}*\n`+
+    (e.transportadora?`Transportadora: ${e.transportadora}\n`:'')+
+    `\nRetire na portaria apresentando o código. Obrigado!\n— Portaria Spazio Montero`;
+
+  // abre o WhatsApp (precisa acontecer no clique, por isso é sem await)
+  window.open('https://wa.me/'+fone+'?text='+encodeURIComponent(msg), '_blank');
+
+  // registra que foi avisado (não trava a abertura do WhatsApp)
+  marcarNotificado(e, m);
+}
+
+async function marcarNotificado(e, m){
+  try{
+    await db.from('encomendas').update({status:'notificada'}).eq('id', e.id).eq('status','recebida');
+    await db.from('notificacoes').insert({
+      encomenda_id: e.id, morador_id: m.id||null, canal:'whatsapp',
+      telefone_destino: m.telefone||null, status_envio:'enviada', enviada_em: new Date().toISOString()
+    });
+    sucesso(); toast('✅ WhatsApp aberto — é só apertar enviar', '#1a9c53');
+    carregarEncomendas();
+  }catch(err){ console.error(err); }
+}
+
+// ========== DISPARO EM LOTE (WhatsApp automático via Evolution API) ==========
+let DISPARANDO = false;
+let PARAR_DISPARO = false;
+const dormir = (ms)=> new Promise(r=>setTimeout(r, ms));
+const aleatorio = (min,max)=> Math.floor(min + Math.random()*(max-min));
+
+function toggleDispConfig(){
+  const c = document.getElementById('disp-config');
+  c.style.display = c.style.display==='none' ? '' : 'none';
+}
+
+// encomendas que ainda faltam avisar (status recebida), com o telefone já resolvido
+function encomendasParaAvisar(){
+  return ENCOMENDAS.filter(e=>e.status==='recebida').map(e=>{
+    const m = MORADORES.find(x=>x.id===e.morador_id) || {};
+    return { e, m, fone: telefoneParaWa(m.telefone) };
+  });
+}
+
+function renderDisparo(){
+  const alvo = encomendasParaAvisar();
+  const comFone = alvo.filter(x=>x.fone);
+  const semFone = alvo.filter(x=>!x.fone);
+  const resumo = document.getElementById('disp-resumo');
+  if(resumo){
+    resumo.innerHTML = `${comFone.length} para enviar` +
+      (semFone.length?` · <span style="color:var(--vermelho)">${semFone.length} sem telefone (serão pulados)</span>`:'');
+  }
+  const lista = document.getElementById('disp-lista');
+  if(lista){
+    if(alvo.length===0){ lista.innerHTML = '<div class="vazio">Ninguém para avisar agora. 🎉</div>'; }
+    else lista.innerHTML = alvo.map(({e,m,fone})=>`
+      <div style="display:flex;justify-content:space-between;gap:8px;padding:8px 0;border-bottom:1px solid var(--borda)">
+        <div><b>Apto ${escapeH(m.apartamento||'?')}${m.bloco?' Bl '+escapeH(m.bloco):''}</b> — ${escapeH(m.nome||'')}<div class="meta">Código ${escapeH(e.codigo_retirada)}</div></div>
+        <div class="meta" style="text-align:right;white-space:nowrap">${fone?'📱 ok':'<span style="color:var(--vermelho)">sem telefone</span>'}</div>
+      </div>`).join('');
+  }
+  const botao = document.getElementById('disp-botao');
+  if(botao) botao.disabled = (comFone.length===0 || DISPARANDO);
+}
+
+// pequenas variações no texto pra reduzir risco de bloqueio
+function montarMensagemAviso(m, e){
+  const apto = (m.apartamento||'') + (m.bloco?' Bl '+m.bloco:'');
+  const saud  = ['Olá','Oi','Olá,'][aleatorio(0,3)];
+  const emoji = ['📦','📦','🛒'][aleatorio(0,3)];
+  const fecho = ['Obrigado!','Obrigada!','Att., Portaria'][aleatorio(0,3)];
+  return `${saud} ${m.nome||''}! ${emoji}\n\n`+
+    `Chegou uma encomenda para o apartamento *${apto}* na portaria do Spazio Montero.\n\n`+
+    `Código de retirada: *${e.codigo_retirada}*\n`+
+    (e.transportadora?`Transportadora: ${e.transportadora}\n`:'')+
+    `\nÉ só retirar na portaria apresentando o código. ${fecho}\n— Portaria Spazio Montero`;
+}
+
+function dentroHorarioComercial(){
+  const h = new Date().getHours();
+  return h>=8 && h<20;
+}
+
+// chama a Edge Function e envia UMA mensagem; devolve {ok} ou {ok:false, erro}
+async function enviarUm(fone, texto){
+  const delay = aleatorio(900, 2500); // "digitando…" antes de enviar
+  const {data, error} = await db.functions.invoke('disparar-whatsapp', { body:{ numero:fone, texto, delay } });
+  if(error){
+    let msg = error.message || 'falha ao chamar a função';
+    try{ const b = await error.context.json(); if(b && b.erro) msg = b.erro; }catch(e){}
+    return { ok:false, erro: msg };
+  }
+  if(data && data.ok) return { ok:true };
+  return { ok:false, erro: (data && (data.erro || ('HTTP '+(data.statusHttp||'?')))) || 'a Evolution não confirmou o envio' };
+}
+
+async function enviarTeste(){
+  const fone = telefoneParaWa(document.getElementById('disp-teste-num').value);
+  const st = document.getElementById('disp-teste-status');
+  if(!fone){ st.innerHTML = '<span style="color:var(--vermelho)">Número inválido.</span>'; return; }
+  st.textContent = 'Enviando teste…';
+  const texto = `Teste da Central de Encomendas ✅\nSe você recebeu isto, o disparo está funcionando.\n— Portaria Spazio Montero`;
+  const r = await enviarUm(fone, texto);
+  if(r.ok){ sucesso(); st.innerHTML = '<span style="color:var(--verde-tx)">✅ Enviado! Confira o WhatsApp.</span>'; }
+  else st.innerHTML = '<span style="color:var(--vermelho)">❌ '+escapeH(r.erro)+'</span>';
+}
+
+function pararDisparo(){ PARAR_DISPARO = true; }
+
+function addLog(box, txt, cor){
+  const d = document.createElement('div');
+  d.style.padding='4px 0'; d.style.color=cor||'var(--texto)'; d.textContent=txt;
+  box.appendChild(d); box.scrollTop = box.scrollHeight;
+}
+
+async function dispararLote(){
+  if(DISPARANDO) return;
+  const alvo = encomendasParaAvisar().filter(x=>x.fone);
+  if(alvo.length===0){ toast('Ninguém para avisar', '#d23c3c'); return; }
+
+  if(document.getElementById('disp-horario').checked && !dentroHorarioComercial()){
+    if(!confirm('Fora do horário comercial (8h–20h). Enviar mesmo assim?')) return;
+  }
+  if(!confirm(`Disparar aviso para ${alvo.length} morador(es) agora?`)) return;
+
+  const min  = Math.max(2, parseInt(document.getElementById('disp-min').value)||8)*1000;
+  const max  = Math.max(min/1000+1, parseInt(document.getElementById('disp-max').value)||20)*1000;
+  const lote = Math.max(1, parseInt(document.getElementById('disp-lote').value)||10);
+  const pausa= Math.max(5, parseInt(document.getElementById('disp-pausa').value)||90)*1000;
+
+  DISPARANDO = true; PARAR_DISPARO = false;
+  document.getElementById('disp-botao').style.display='none';
+  document.getElementById('disp-parar').style.display='';
+  document.getElementById('disp-progresso-card').style.display='';
+  const barra = document.getElementById('disp-barra');
+  const status = document.getElementById('disp-status');
+  const log = document.getElementById('disp-log');
+  log.innerHTML=''; barra.style.width='0';
+
+  let enviados=0, falhas=0;
+  for(let i=0;i<alvo.length;i++){
+    if(PARAR_DISPARO){ addLog(log, '⏹️ Parado pela portaria.', 'var(--suave)'); break; }
+    const {e,m,fone} = alvo[i];
+    status.textContent = `Enviando ${i+1} de ${alvo.length}…`;
+    const r = await enviarUm(fone, montarMensagemAviso(m, e));
+    if(r.ok){
+      enviados++;
+      try{ await marcarNotificadoBanco(e, m); }catch(err){ console.error(err); }
+      addLog(log, `✅ Apto ${m.apartamento||'?'}${m.bloco?' Bl '+m.bloco:''} — ${m.nome||''}`, 'var(--verde-tx)');
+    } else {
+      falhas++;
+      addLog(log, `❌ Apto ${m.apartamento||'?'} — ${m.nome||''}: ${r.erro}`, 'var(--vermelho)');
+    }
+    barra.style.width = Math.round(((i+1)/alvo.length)*100)+'%';
+    if(i < alvo.length-1 && !PARAR_DISPARO){
+      let ms = aleatorio(min, max);
+      if((i+1)%lote===0){ ms += pausa; addLog(log, `⏸️ Pausa de lote (~${Math.round(ms/1000)}s)…`, 'var(--suave)'); }
+      await dormir(ms);
+    }
+  }
+  status.textContent = `Concluído: ${enviados} enviado(s), ${falhas} falha(s).`;
+  if(enviados) sucesso();
+  DISPARANDO = false;
+  document.getElementById('disp-parar').style.display='none';
+  document.getElementById('disp-botao').style.display='';
+  await carregarEncomendas();
+  renderDisparo();
+}
+
+// grava status "notificada" + registra em notificacoes (sem abrir wa.me)
+async function marcarNotificadoBanco(e, m){
+  await db.from('encomendas').update({status:'notificada'}).eq('id', e.id).eq('status','recebida');
+  const alvo = ENCOMENDAS.find(y=>y.id===e.id); if(alvo) alvo.status='notificada';
+  await db.from('notificacoes').insert({
+    encomenda_id: e.id, morador_id: m.id||null, canal:'whatsapp',
+    telefone_destino: m.telefone||null, status_envio:'enviada', enviada_em: new Date().toISOString()
+  });
+}
+
+// Baixa manual: agora exige a foto do cupom assinado (abre a câmera)
+let BAIXA_MANUAL_ID = null;
+function darBaixa(id){
+  BAIXA_MANUAL_ID = id;
+  const inp = document.getElementById('baixa-manual-foto');
+  inp.value = '';
+  inp.click(); // abre a câmera; a baixa continua em baixaManualComFoto()
+}
+async function baixaManualComFoto(ev){
+  const file = ev.target.files[0];
+  if(!file){ return; } // cancelou a câmera -> não dá baixa
+  const e = ENCOMENDAS.find(x=>x.id===BAIXA_MANUAL_ID);
+  if(!e){ toast('Encomenda não encontrada', '#d23c3c'); return; }
+  const quem = prompt('Quem está retirando a encomenda? (nome, opcional)');
+  if(quem===null) return; // cancelou
+  toast('Enviando comprovante…', '#1a2230');
+  let foto_url = null;
+  try{ foto_url = await uploadArquivo(file, 'retirada'); }
+  catch(err){ console.error(err); toast('Não consegui guardar a foto — baixa será dada mesmo assim', '#d23c3c'); }
+  const {error} = await db.from('encomendas').update({
+    status:'retirada', retirada_por: quem.trim()||'Não informado',
+    retirada_em: new Date().toISOString(),
+    foto_retirada_url: foto_url, assinatura_url: foto_url
+  }).eq('id', e.id);
+  if(error){ toast('Erro ao dar baixa', '#d23c3c'); console.error(error); return; }
+  sucesso(); toast('✅ Baixa registrada com comprovante!', '#1a9c53');
+  carregarEncomendas();
+}
+
+// ---------- SCANNER DE QR AO VIVO (câmera em tempo real) ----------
+let SCAN_STREAM = null, SCAN_RAF = null;
+async function abrirScanner(){
+  if(typeof jsQR === 'undefined'){ toast('Leitor ainda carregando, tente em 2s', '#d23c3c'); return; }
+  try{
+    SCAN_STREAM = await navigator.mediaDevices.getUserMedia({ video:{ facingMode:'environment' }, audio:false });
+  }catch(err){
+    console.error(err);
+    toast('Câmera indisponível aqui. Use "tirar foto" abaixo.', '#d23c3c');
+    return;
+  }
+  const v = document.getElementById('scanner-video');
+  v.srcObject = SCAN_STREAM;
+  await v.play().catch(()=>{});
+  document.getElementById('scanner').style.display = '';
+  SCAN_RAF = requestAnimationFrame(scanLoop);
+}
+function scanLoop(){
+  const v = document.getElementById('scanner-video');
+  const c = document.getElementById('scanner-canvas');
+  if(v && v.readyState === v.HAVE_ENOUGH_DATA){
+    c.width = v.videoWidth; c.height = v.videoHeight;
+    const ctx = c.getContext('2d');
+    ctx.drawImage(v, 0, 0, c.width, c.height);
+    let code = null;
+    try{ const img = ctx.getImageData(0,0,c.width,c.height); code = jsQR(img.data, img.width, img.height, {inversionAttempts:'dontInvert'}); }catch(e){}
+    if(code && code.data){
+      SCAN_RAF = null;
+      // captura o quadro atual (cupom assinado) como comprovante
+      c.toBlob((blob)=>{
+        pararCamera();
+        document.getElementById('scanner').style.display = 'none';
+        processarCodigoBaixa(code.data, blob);
+      }, 'image/jpeg', 0.85);
+      return;
+    }
+  }
+  SCAN_RAF = requestAnimationFrame(scanLoop);
+}
+function pararCamera(){
+  if(SCAN_RAF){ cancelAnimationFrame(SCAN_RAF); SCAN_RAF = null; }
+  if(SCAN_STREAM){ SCAN_STREAM.getTracks().forEach(t=>t.stop()); SCAN_STREAM = null; }
+}
+function fecharScanner(){
+  pararCamera();
+  document.getElementById('scanner').style.display = 'none';
+}
+function processarCodigoBaixa(qrData, blob){
+  const cod = (qrData||'').replace(/^ENC:/i,'');
+  const e = encomendaPorCodigoExato(cod);
+  const st = document.getElementById('baixa-status');
+  document.getElementById('aba-encomendas').scrollIntoView({behavior:'smooth'});
+  if(!e){ toast('Código não encontrado nas encomendas', '#d23c3c'); if(st) st.innerHTML='<span class="meta" style="color:var(--vermelho)">QR lido, mas o código não bate com nenhuma encomenda.</span>'; return; }
+  if(e.status==='retirada'){ mostrarJaRetirada(e); return; }
+  BAIXA_PENDENTE = { encomenda:e, foto:blob };
+  mostrarConfirmacaoBaixa();
+}
+
+// ---------- DAR BAIXA POR FOTO (cupom assinado) ----------
+let BAIXA_PENDENTE = null; // {encomenda, foto} aguardando confirmação
+
+// distância de edição (quantos caracteres diferem)
+function distancia(a,b){
+  a=(a||'').toUpperCase(); b=(b||'').toUpperCase();
+  const m=a.length,n=b.length;
+  const dp=Array.from({length:m+1},(_,i)=>[i,...Array(n).fill(0)]);
+  for(let j=0;j<=n;j++) dp[0][j]=j;
+  for(let i=1;i<=m;i++) for(let j=1;j<=n;j++)
+    dp[i][j]=Math.min(dp[i-1][j]+1, dp[i][j-1]+1, dp[i-1][j-1]+(a[i-1]===b[j-1]?0:1));
+  return dp[m][n];
+}
+
+// acha por código exato entre TODAS as encomendas (qualquer status)
+function encomendaPorCodigoExato(cod){
+  const c = (cod||'').toUpperCase().replace(/[^A-Z0-9]/g,'');
+  if(!c) return null;
+  return ENCOMENDAS.find(e=>(e.codigo_retirada||'').toUpperCase()===c) || null;
+}
+
+// procura a encomenda no texto do OCR:
+// 1) exato entre TODAS (pra avisar se já foi retirada)
+// 2) aproximado (1 erro) só entre as pendentes
+function acharEncomendaPorCodigo(texto){
+  const T = (texto||'').toUpperCase().replace(/[^A-Z0-9]/g,'');
+  for(const e of ENCOMENDAS){
+    const c=(e.codigo_retirada||'').toUpperCase();
+    if(c && T.includes(c)) return e;           // exato (qualquer status)
+  }
+  let melhor=null, melhorD=99;
+  for(const e of ENCOMENDAS.filter(x=>x.status!=='retirada')){
+    const c=(e.codigo_retirada||'').toUpperCase();
+    if(c.length<3) continue;
+    for(let i=0;i+c.length<=T.length;i++){
+      const d=distancia(T.substr(i,c.length), c);
+      if(d<melhorD){ melhorD=d; melhor=e; }
+    }
+  }
+  return (melhor && melhorD<=1) ? melhor : null; // tolera 1 caractere errado
+}
+
+async function lerBaixaFoto(ev){
+  const file = ev.target.files[0];
+  if(!file) return;
+  BAIXA_PENDENTE = { encomenda:null, foto:file };
+  const st = document.getElementById('baixa-status');
+  st.innerHTML = '<span class="meta">🔎 Lendo o cupom…</span>';
+  let e = null;
+  // lê o QR Code (rápido e confiável) — cruza com TODAS as encomendas
+  try{
+    const qr = await lerQR(file);
+    if(qr){ e = encomendaPorCodigoExato(qr.replace(/^ENC:/i,'')); }
+  }catch(err){ console.error(err); }
+
+  if(e && e.status==='retirada'){
+    // JÁ foi retirada antes — avisa pra não duplicar
+    mostrarJaRetirada(e);
+    return;
+  }
+  if(e){
+    BAIXA_PENDENTE.encomenda = e;
+    mostrarConfirmacaoBaixa();
+  } else {
+    // não achou: deixa a porteira escolher na lista (a foto continua guardada)
+    const pend = ENCOMENDAS.filter(x=>x.status!=='retirada');
+    const opts = pend.map(x=>{
+      const mm = MORADORES.find(y=>y.id===x.morador_id)||{};
+      return `<option value="${x.id}">${escapeH(x.codigo_retirada)} — Apto ${escapeH(mm.apartamento||'?')}${mm.bloco?' Bl '+escapeH(mm.bloco):''} — ${escapeH(mm.nome||'')}</option>`;
+    }).join('');
+    st.innerHTML = `<div class="card" style="background:#fff6f6;padding:12px;margin:0">
+      <div style="font-weight:700;color:var(--vermelho)">Não li o código automaticamente</div>
+      <p class="meta">Sem problema — escolha a encomenda na lista (a foto será guardada como comprovante):</p>
+      <select id="b-escolha" onchange="escolherBaixaManual(this.value)">
+        <option value="">Selecione a encomenda…</option>${opts}
+      </select>
+      <div id="b-confirma"></div>
+      <button class="acao sec" style="margin-top:8px" onclick="cancelarBaixaFoto()">Cancelar</button>
+    </div>`;
+  }
+}
+
+function escolherBaixaManual(id){
+  if(!id){ document.getElementById('b-confirma').innerHTML=''; BAIXA_PENDENTE.encomenda=null; return; }
+  BAIXA_PENDENTE.encomenda = ENCOMENDAS.find(x=>x.id===id) || null;
+  const m = MORADORES.find(x=>x.id===(BAIXA_PENDENTE.encomenda?.morador_id)) || {};
+  document.getElementById('b-confirma').innerHTML = `
+    <div style="font-weight:700;margin-top:8px">Apto ${escapeH(m.apartamento||'?')}${m.bloco?' Bl '+escapeH(m.bloco):''} — ${escapeH(m.nome||'')}</div>
+    <label style="margin-top:8px">Quem retirou (opcional)</label>
+    <input id="b-quem" placeholder="Nome de quem retirou">
+    <button class="acao verde" style="margin-top:12px" onclick="confirmarBaixaFoto()">✓ Confirmar retirada</button>`;
+}
+
+function mostrarConfirmacaoBaixa(){
+  const e = BAIXA_PENDENTE.encomenda;
+  const m = MORADORES.find(x=>x.id===e.morador_id) || {};
+  document.getElementById('baixa-status').innerHTML = `<div class="card" style="background:var(--cinza);padding:12px;margin:0">
+    <div class="selo-verde">CÓDIGO ${escapeH(e.codigo_retirada)}</div>
+    <div style="font-weight:700;font-size:18px">Apto ${escapeH(m.apartamento||'?')}${m.bloco?' Bl '+escapeH(m.bloco):''} — ${escapeH(m.nome||'')}</div>
+    <label style="margin-top:8px">Quem retirou (opcional)</label>
+    <input id="b-quem" placeholder="Nome de quem retirou">
+    <button class="acao verde" style="margin-top:12px" onclick="confirmarBaixaFoto()">✓ Confirmar retirada</button>
+    <button class="acao sec" style="margin-top:8px" onclick="cancelarBaixaFoto()">Cancelar</button>
+  </div>`;
+}
+
+function cancelarBaixaFoto(){
+  BAIXA_PENDENTE = null;
+  document.getElementById('baixa-status').innerHTML='';
+  document.getElementById('b-foto').value='';
+}
+
+// Aviso: essa encomenda JÁ foi retirada antes (evita duplicar)
+function mostrarJaRetirada(e){
+  const m = MORADORES.find(x=>x.id===e.morador_id) || {};
+  document.getElementById('baixa-status').innerHTML = `<div class="card" style="background:#fff6f6;border:2px solid var(--vermelho);padding:12px;margin:0">
+    <div style="font-weight:800;color:var(--vermelho);font-size:16px">⚠️ JÁ FOI RETIRADA</div>
+    <div style="margin-top:6px">Código <b>${escapeH(e.codigo_retirada)}</b> — Apto ${escapeH(m.apartamento||'?')}${m.bloco?' Bl '+escapeH(m.bloco):''} — ${escapeH(m.nome||'')}</div>
+    <div class="meta" style="margin-top:4px">Retirada em ${fmtData(e.retirada_em)} por ${escapeH(e.retirada_por||'?')}.</div>
+    <div class="meta" style="margin-top:6px">Não é necessário dar baixa de novo.</div>
+    <button class="acao sec" style="margin-top:12px" onclick="cancelarBaixaFoto()">OK, entendi</button>
+    <button class="acao" style="margin-top:8px;background:#8a5a00" onclick="reverterBaixa('${e.id}')">↩️ Foi engano — desfazer baixa</button>
+  </div>`;
+}
+
+// Desfaz uma baixa dada por engano: volta a encomenda para pendente
+async function reverterBaixa(id){
+  if(!confirm('Desfazer a baixa? A encomenda volta a aparecer como pendente.')) return;
+  const {error} = await db.from('encomendas').update({
+    status:'recebida', retirada_por:null, retirada_em:null,
+    foto_retirada_url:null, assinatura_url:null
+  }).eq('id', id);
+  if(error){ toast('Erro ao desfazer: '+error.message, '#d23c3c'); console.error(error); return; }
+  toast('Baixa desfeita — encomenda voltou para pendente', '#1a9c53');
+  cancelarBaixaFoto();
+  carregarEncomendas();
+}
+
+async function confirmarBaixaFoto(){
+  if(!BAIXA_PENDENTE || !BAIXA_PENDENTE.encomenda){ toast('Escolha a encomenda primeiro', '#d23c3c'); return; }
+  const {encomenda, foto} = BAIXA_PENDENTE;
+  const quem = (document.getElementById('b-quem')?.value||'').trim();
+  toast('Enviando comprovante…', '#1a2230');
+  let foto_url = null;
+  try{ foto_url = await uploadArquivo(foto, 'retirada'); }
+  catch(err){ console.error(err); toast('Não consegui guardar a foto — baixa será dada mesmo assim', '#d23c3c'); }
+  const {error} = await db.from('encomendas').update({
+    status:'retirada', retirada_por: quem||'Não informado',
+    retirada_em: new Date().toISOString(),
+    foto_retirada_url: foto_url, assinatura_url: foto_url
+  }).eq('id', encomenda.id);
+  if(error){ toast('Erro ao dar baixa: '+error.message, '#d23c3c'); console.error(error); return; }
+  sucesso(); toast('✅ Baixa registrada com comprovante!', '#1a9c53');
+  cancelarBaixaFoto();
+  carregarEncomendas();
+}
+
+// ---------- MORADORES ----------
+function toggleFormMorador(){
+  const f = document.getElementById('form-morador');
+  f.style.display = f.style.display==='none' ? '' : 'none';
+}
+function normalizar(s){
+  return (s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
+}
+async function salvarMorador(){
+  const apto = document.getElementById('m-apto').value.trim();
+  const bloco = document.getElementById('m-bloco').value.trim();
+  const nome = document.getElementById('m-nome').value.trim();
+  const tel = document.getElementById('m-telefone').value.trim();
+  if(!apto || !nome){ toast('Preencha apartamento e nome', '#d23c3c'); return; }
+
+  const {error} = await db.from('moradores').insert({
+    nome, apartamento: apto, bloco: bloco||null, telefone: tel||null,
+    nome_normalizado: normalizar(nome), ativo: true
+  });
+  if(error){ toast('Erro ao salvar: '+error.message, '#d23c3c'); console.error(error); return; }
+  toast('Morador cadastrado!', '#1a9c53');
+  document.getElementById('m-apto').value='';
+  document.getElementById('m-bloco').value='';
+  document.getElementById('m-nome').value='';
+  document.getElementById('m-telefone').value='';
+  carregarMoradores();
+}
+function renderMoradores(){
+  const box = document.getElementById('lista-moradores');
+  const q = normalizar(document.getElementById('m-busca')?.value);
+  let itens = MORADORES.filter(m=>m.ativo); // lista mostra só ativos
+  if(q) itens = itens.filter(m=>normalizar(m.nome).includes(q) || normalizar(m.apartamento).includes(q) || normalizar(m.bloco||'').includes(q));
+  const total = itens.length;
+  if(total===0){ box.innerHTML = '<div class="vazio">Nenhum morador. Cadastre acima ou importe a planilha.</div>'; return; }
+  itens = itens.sort((a,b)=>(''+a.apartamento).localeCompare(''+b.apartamento,undefined,{numeric:true}));
+  const limite = 80;
+  const mostrando = itens.slice(0, limite);
+  const aviso = total>limite ? `<div class="meta" style="padding:8px 2px">Mostrando ${limite} de ${total}. Use a busca acima para achar um morador específico.</div>` : `<div class="meta" style="padding:8px 2px">${total} morador(es)</div>`;
+  box.innerHTML = aviso + mostrando.map(m=>`
+    <div class="lista-item">
+      <div class="li-topo">
+        <div>
+          <div class="apto">${escapeH(m.apartamento)}${m.bloco?' <span style="font-size:15px">Bl '+escapeH(m.bloco)+'</span>':''}</div>
+          <div class="nome">${escapeH(m.nome)}</div>
+          <div class="meta">${m.telefone?'📱 '+escapeH(m.telefone):'⚠️ sem telefone'}</div>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+// ---------- IMPORTAR PLANILHA ----------
+let LINHAS_PLANILHA = []; // linhas cruas da planilha (array de objetos)
+let COLUNAS = [];         // nomes das colunas detectadas
+let PLANO_IMPORT = null;  // resultado da conferência
+
+function toggleImport(){
+  const b = document.getElementById('bloco-import');
+  b.style.display = b.style.display==='none' ? '' : 'none';
+}
+
+// tenta adivinhar qual coluna é qual pelo nome do cabeçalho
+function adivinhar(cols, chaves){
+  for(const c of cols){
+    const n = normalizar(c);
+    if(chaves.some(k=>n.includes(k))) return c;
+  }
+  return '';
+}
+
+function lerPlanilha(ev){
+  const file = ev.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = (e)=>{
+    try{
+      const wb = XLSX.read(e.target.result, {type:'array'});
+      const sheet = wb.Sheets[wb.SheetNames[0]];
+      LINHAS_PLANILHA = XLSX.utils.sheet_to_json(sheet, {defval:''});
+      if(LINHAS_PLANILHA.length===0){ toast('A planilha está vazia', '#d23c3c'); return; }
+      COLUNAS = Object.keys(LINHAS_PLANILHA[0]);
+      // monta os seletores de coluna
+      const opts = '<option value="">— nenhuma —</option>'+COLUNAS.map(c=>`<option value="${escapeH(c)}">${escapeH(c)}</option>`).join('');
+      ['col-nome','col-apto','col-bloco','col-tel'].forEach(id=>document.getElementById(id).innerHTML=opts);
+      // tenta adivinhar
+      document.getElementById('col-nome').value  = adivinhar(COLUNAS, ['nome','morador','residente']);
+      document.getElementById('col-apto').value  = adivinhar(COLUNAS, ['apart','apto','unidade','ap','numero']);
+      document.getElementById('col-bloco').value = adivinhar(COLUNAS, ['bloco','torre','ala']);
+      document.getElementById('col-tel').value   = adivinhar(COLUNAS, ['tel','celular','whats','fone','contato']);
+      document.getElementById('map-colunas').style.display='';
+      document.getElementById('preview-import').innerHTML='';
+      toast('Planilha lida: '+LINHAS_PLANILHA.length+' linhas', '#1a9c53');
+    }catch(err){ console.error(err); toast('Não consegui ler o arquivo', '#d23c3c'); }
+  };
+  reader.readAsArrayBuffer(file);
+}
+
+function chaveMorador(nome, apto, bloco){
+  return normalizar(nome)+'|'+normalizar(apto)+'|'+normalizar(bloco||'');
+}
+
+function previewImport(){
+  const cNome=document.getElementById('col-nome').value;
+  const cApto=document.getElementById('col-apto').value;
+  const cBloco=document.getElementById('col-bloco').value;
+  const cTel=document.getElementById('col-tel').value;
+  if(!cNome || !cApto){ toast('Escolha ao menos as colunas de Nome e Apartamento', '#d23c3c'); return; }
+
+  // monta a lista limpa da planilha
+  const daPlanilha = [];
+  for(const lin of LINHAS_PLANILHA){
+    const nome = (''+lin[cNome]).trim();
+    const apto = (''+lin[cApto]).trim();
+    if(!nome || !apto) continue; // ignora linhas incompletas
+    daPlanilha.push({
+      nome, apartamento: apto,
+      bloco: cBloco ? (''+lin[cBloco]).trim() : '',
+      telefone: cTel ? (''+lin[cTel]).trim() : ''
+    });
+  }
+
+  // índice de TODOS os moradores (ativos + arquivados) por chave
+  const todosPorChave = {};
+  MORADORES.forEach(m=>{ todosPorChave[chaveMorador(m.nome,m.apartamento,m.bloco)]=m; });
+
+  const novos=[], atualizados=[]; const chavesPlanilha=new Set();
+  for(const p of daPlanilha){
+    const ch = chaveMorador(p.nome,p.apartamento,p.bloco);
+    chavesPlanilha.add(ch);
+    const atual = todosPorChave[ch];
+    if(!atual){ novos.push(p); }                                   // não existe -> novo
+    else if(!atual.ativo){ atualizados.push({...p, id:atual.id}); } // arquivado voltou -> reativar
+    else if((atual.telefone||'')!==(p.telefone||'')){ atualizados.push({...p, id:atual.id}); } // telefone mudou
+  }
+  // arquivar: só ATIVOS que não estão na planilha
+  const arquivar = MORADORES.filter(m=>m.ativo && !chavesPlanilha.has(chaveMorador(m.nome,m.apartamento,m.bloco)));
+
+  PLANO_IMPORT = {novos, atualizados, arquivar, total:daPlanilha.length, nomeArquivo:document.getElementById('arq-planilha').files[0]?.name||''};
+
+  document.getElementById('preview-import').innerHTML = `
+    <div class="card" style="background:var(--cinza);margin-top:14px">
+      <strong>Conferência</strong>
+      <div style="display:flex;gap:8px;margin:12px 0;text-align:center">
+        <div style="flex:1"><div style="font-size:26px;font-weight:800;color:var(--verde)">${novos.length}</div><div class="meta">novos</div></div>
+        <div style="flex:1"><div style="font-size:26px;font-weight:800;color:var(--azul)">${atualizados.length}</div><div class="meta">atualizados</div></div>
+        <div style="flex:1"><div style="font-size:26px;font-weight:800;color:var(--vermelho)">${arquivar.length}</div><div class="meta">a arquivar</div></div>
+      </div>
+      <label style="display:flex;align-items:center;gap:8px;font-weight:600;color:var(--texto)">
+        <input type="checkbox" id="chk-arquivar" style="width:auto"> Arquivar os ${arquivar.length} que não estão na planilha
+      </label>
+      <p class="meta">Deixe desmarcado se sua planilha tem só ALGUNS moradores. Marque só quando for a lista COMPLETA do prédio.</p>
+      <button class="acao verde" onclick="aplicarImport()">Salvar no banco</button>
+    </div>`;
+}
+
+async function aplicarImport(){
+  if(!PLANO_IMPORT){ return; }
+  const arquivarTambem = document.getElementById('chk-arquivar')?.checked;
+  const {novos, atualizados, arquivar, total, nomeArquivo} = PLANO_IMPORT;
+  toast('Salvando…', '#1a2230');
+  try{
+    // 1) inserir novos
+    if(novos.length){
+      const linhas = novos.map(p=>({
+        nome:p.nome, apartamento:p.apartamento, bloco:p.bloco||null,
+        telefone:p.telefone||null, nome_normalizado:normalizar(p.nome), ativo:true
+      }));
+      const {error} = await db.from('moradores').insert(linhas);
+      if(error) throw error;
+    }
+    // 2) atualizar telefones
+    for(const p of atualizados){
+      await db.from('moradores').update({telefone:p.telefone||null, ativo:true}).eq('id', p.id);
+    }
+    // 3) arquivar (se marcado)
+    let arquivados=0;
+    if(arquivarTambem && arquivar.length){
+      for(const m of arquivar){
+        await db.from('moradores').update({ativo:false, arquivado_em:new Date().toISOString()}).eq('id', m.id);
+      }
+      arquivados = arquivar.length;
+    }
+    // 4) registrar o upload
+    await db.from('uploads_planilha').insert({
+      arquivo_nome:nomeArquivo, total_novos:novos.length,
+      total_atualizados:atualizados.length, total_arquivados:arquivados,
+      aplicado:true, aplicado_em:new Date().toISOString()
+    });
+    toast(`✅ Pronto! ${novos.length} novos, ${atualizados.length} atualizados, ${arquivados} arquivados`, '#1a9c53');
+    document.getElementById('preview-import').innerHTML='';
+    document.getElementById('map-colunas').style.display='none';
+    document.getElementById('arq-planilha').value='';
+    await carregarMoradores();
+  }catch(err){ console.error(err); toast('Erro ao salvar: '+(err.message||err), '#d23c3c'); }
+}
+
+// ---------- RELATÓRIOS ----------
+let REL_LINHAS = [];
+function prepararRelatorio(){
+  const sel = document.getElementById('rel-bloco');
+  const blocos = [...new Set(MORADORES.filter(m=>m.bloco).map(m=>m.bloco))]
+    .sort((a,b)=>(''+a).localeCompare(''+b,undefined,{numeric:true}));
+  sel.innerHTML = '<option value="">Todos</option>' + blocos.map(b=>`<option value="${escapeH(b)}">${escapeH(b)}</option>`).join('');
+}
+async function gerarRelatorio(){
+  const bloco = document.getElementById('rel-bloco').value;
+  const status = document.getElementById('rel-status').value;
+  const qMor = normalizar(document.getElementById('rel-morador').value);
+  const dias = parseInt(document.getElementById('rel-periodo').value)||0;
+  const box = document.getElementById('rel-resultado');
+  box.innerHTML = '';
+  await comCarregando('Gerando relatório…', async ()=>{ await carregarEncomendas(); });
+  const limite = dias>0 ? Date.now()-dias*86400000 : 0;
+  let linhas = ENCOMENDAS.map(e=>({e, m: MORADORES.find(x=>x.id===e.morador_id)||{}}));
+  linhas = linhas.filter(({e,m})=>{
+    if(bloco && normalizar(m.bloco)!==normalizar(bloco)) return false;
+    if(status==='pendentes' && e.status==='retirada') return false;
+    if(status==='retiradas' && e.status!=='retirada') return false;
+    if(qMor && !(normalizar(m.nome).includes(qMor)||normalizar(m.apartamento).includes(qMor))) return false;
+    if(limite && new Date(e.recebida_em).getTime() < limite) return false;
+    return true;
+  });
+  REL_LINHAS = linhas;
+  const total = linhas.length;
+  const retiradas = linhas.filter(x=>x.e.status==='retirada').length;
+  const pendentes = total - retiradas;
+  box.innerHTML = `
+    <div class="card">
+      <div style="display:flex;gap:8px;text-align:center">
+        <div style="flex:1"><div style="font-size:24px;font-weight:800">${total}</div><div class="meta">total</div></div>
+        <div style="flex:1"><div style="font-size:24px;font-weight:800;color:var(--vermelho)">${pendentes}</div><div class="meta">pendentes</div></div>
+        <div style="flex:1"><div style="font-size:24px;font-weight:800;color:var(--verde)">${retiradas}</div><div class="meta">retiradas</div></div>
+      </div>
+      <button class="acao sec" style="margin-top:12px" onclick="baixarRelatorioCSV()"><i class="ti ti-download"></i> Baixar planilha (CSV)</button>
+    </div>
+    ${linhas.length ? linhas.map(({e,m})=>`
+      <div class="lista-item">
+        <div style="font-weight:700">Apto ${escapeH(m.apartamento||'?')}${m.bloco?' Bl '+escapeH(m.bloco):''} — ${escapeH(m.nome||'(removido)')}</div>
+        <div class="meta">Código ${escapeH(e.codigo_retirada)} · ${e.transportadora?escapeH(e.transportadora)+' · ':''}${escapeH(e.status)}</div>
+        <div class="meta">Recebido ${fmtData(e.recebida_em)}${e.status==='retirada'?' · Retirado '+fmtData(e.retirada_em)+' por '+escapeH(e.retirada_por||'?'):''}</div>
+      </div>`).join('') : '<div class="vazio">Nenhuma encomenda com esses filtros.</div>'}
+  `;
+}
+function baixarRelatorioCSV(){
+  const linhas = [['Apartamento','Bloco','Morador','Codigo','Transportadora','Rastreio','Status','Recebido','Retirado em','Retirado por']];
+  REL_LINHAS.forEach(({e,m})=>{
+    linhas.push([m.apartamento||'', m.bloco||'', m.nome||'', e.codigo_retirada||'', e.transportadora||'',
+      e.codigo_rastreio||'', e.status||'', fmtData(e.recebida_em), e.retirada_em?fmtData(e.retirada_em):'', e.retirada_por||'']);
+  });
+  const csv = linhas.map(r=>r.map(c=>`"${(''+c).replace(/"/g,'""')}"`).join(',')).join('\n');
+  const blob = new Blob(['﻿'+csv], {type:'text/csv;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href=url; a.download='relatorio_encomendas.csv'; a.click();
+  setTimeout(()=>URL.revokeObjectURL(url), 2000);
+}
+
+// carrega os dados depois de logado
+async function iniciarDados(){
+  const st = document.getElementById('status-conn');
+  try{
+    const {error} = await db.from('moradores').select('id').limit(1);
+    if(error) throw error;
+    st.textContent = '🟢 Conectado ao banco';
+    st.style.color = '#c7f0d6';
+  }catch(err){
+    st.textContent = '🔴 Sem conexão com o banco';
+    st.style.color = '#ffd4d4';
+    console.error(err);
+  }
+  montarChipsTransp();
+  await carregarMoradores();
+}
+
+// ---------- inicialização: checa login primeiro ----------
+(async function init(){
+  const inicio = Date.now();
+  const {data} = await db.auth.getSession();
+  const espera = Math.max(0, 900 - (Date.now()-inicio)); // splash mínima ~0,9s
+  await new Promise(r=>setTimeout(r, espera));
+  if(data && data.session && data.session.user){
+    await entrarNoApp(data.session.user);
+  } else {
+    document.getElementById('splash').style.display = 'none';
+    document.getElementById('tela-login').style.display = 'flex';
+    document.getElementById('app').style.display = 'none';
+  }
+})();
+</script>
 </body>
 </html>
